@@ -73,6 +73,10 @@ export default defineNuxtConfig({
     defaults: {
       weights: [300, 400, 500, 600, 700, 800],
     },
+    families: [
+      { name: "Poppins", provider: "google" },
+      { name: "Baskervville", provider: "google" },
+    ],
   },
 
   imports: {

@@ -1,41 +1,56 @@
 <script setup lang="ts">
+import { Icons } from "~/components/atoms/icons/Icons";
+
 defineProps<{
-  reverse?: boolean
-}>()
+  reverse?: boolean;
+}>();
 </script>
 
 <template>
-  <div
-    class="relative flex items-center justify-center px-4 h-dvh lg:max-w-none lg:px-0"
-    :class="{ 'flex-row-reverse': reverse }"
-  >
-    <div class="relative hidden h-full flex-1 flex-col bg-muted p-10 text-white lg:flex dark:border-r">
-      <div class="absolute inset-0 bg-zinc-900" />
-      <div class="relative z-20 flex items-center text-lg font-medium">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="mr-2 h-6 w-6">
-          <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" />
-        </svg>
-        Acme Inc
+  <div class="grid h-screen overflow-hidden lg:grid-cols-2">
+    <!-- Left: Branding Side -->
+    <div
+      class="relative hidden h-full flex-col justify-center p-12 text-white lg:flex lg:p-20"
+    >
+      <!-- Background Image with Overlay -->
+      <div class="absolute inset-0 z-0">
+        <img
+          src="/assets/images/auth-background.png"
+          alt="Auth Background"
+          class="size-full object-cover"
+        />
+        <!-- <div class="absolute inset-0 bg-primary/80" /> -->
       </div>
-      <div class="relative z-20 mt-auto">
-        <blockquote class="space-y-2">
-          <p class="text-lg">
-            &ldquo;This library has saved me countless hours of work and
-            helped me deliver stunning designs to my clients faster than
-            ever before.&rdquo;
+
+      <!-- Content -->
+      <div class="relative z-10 flex flex-col gap-8">
+        <div class="flex items-center gap-2">
+          <Icons.logo class="size-8 text-white" />
+          <span class="text-2xl font-semibold tracking-tight">NurTani</span>
+        </div>
+
+        <div class="space-y-6 max-w-xl">
+          <h1 class="text-6xl font-serif leading-[1.1] font-semibold">
+            Hulu Sehat,<br />
+            <span class="italic text-secondary"> Hilir Bahagia </span>
+          </h1>
+          <p class="text-lg text-white/90 leading-relaxed font-light">
+            NurTani menjaga keaslian proses produksi sampai konsumsi secara
+            terbuka agar alam kita tetap terjaga untuk kebahagiaan selanjutnya.
           </p>
-          <footer class="text-sm">
-            Sofia Davis
-          </footer>
-        </blockquote>
+        </div>
       </div>
     </div>
-    <div class="mx-auto flex-1 lg:p-8">
-      <slot />
+
+    <!-- Right: Form Side -->
+    <div
+      class="flex h-full items-center justify-center p-8 bg-white overflow-y-auto lg:py-20 lg:px-0 no-scrollbar"
+    >
+      <div class="w-full max-w-lg my-auto">
+        <slot />
+      </div>
     </div>
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
