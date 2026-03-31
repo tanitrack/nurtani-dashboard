@@ -166,9 +166,9 @@
   --chart-3: var(--color-green-600);
   --chart-4: var(--color-green-700);
   --chart-5: var(--color-green-800);
-  --sidebar-primary: var(--color-lime-600);
-  --sidebar-primary-foreground: var(--color-lime-50);
-  --sidebar-ring: var(--color-lime-400);
+  --sidebar-primary: #ffffff;
+  --sidebar-primary-foreground: #1a4d2e;
+  --sidebar-ring: #ffffff;
 
   @variant dark {
     --primary: var(--color-lime-600);
