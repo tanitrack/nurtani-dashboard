@@ -1,0 +1,25 @@
+---
+description: Enforce strict refusal and corrected alternatives for invalid requests
+alwaysApply: true
+---
+
+# Agent Strict Mode
+
+- Treat architecture rules in this project as hard constraints, not suggestions.
+- If a user request violates constraints, refuse the violating implementation.
+- Immediately provide a compliant alternative that matches project structure and flow.
+- Continue implementation only in the compliant direction.
+
+# Refusal Triggers
+
+- Request puts layout files in `components/organisms` instead of `components/layout`.
+- Request adds direct API calls in `components/**`, `pages/**`, or `layouts/**`.
+- Request introduces business logic in `atoms` or manual rebuilds of shadcn primitives.
+- Request uses `any` or bypasses TypeScript safety without justified narrowing.
+- Request bypasses required flow `Page -> Composable -> Service -> API`.
+
+# Required Response Pattern
+
+- State which rule is violated in one sentence.
+- Offer the corrected architecture path in one sentence.
+- Implement only the corrected version unless the user explicitly updates constraints.

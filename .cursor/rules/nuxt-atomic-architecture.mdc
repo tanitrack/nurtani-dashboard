@@ -1,0 +1,30 @@
+---
+description: Enforce strict Atomic Design structure and boundaries
+alwaysApply: true
+---
+
+# Nuxt Atomic Architecture
+
+- MUST use these directories for component architecture: `components/atoms`, `components/molecules`, `components/organisms`, `components/templates`.
+- MUST place layout-specific UI in `components/layout` and NEVER in `components/organisms`.
+- Keep each layer responsibility strict:
+  - `atoms`: presentation-only wrappers around base UI; no business logic, no API calls.
+  - `molecules`: combine atoms; allow only light UI logic (formatting, local UI state); no API calls.
+  - `organisms`: compose molecules/atoms; may use composables and UI state; no direct API calls.
+  - `templates`: composition-only for template structures; no business logic.
+- MUST favor composition over duplication and extract reusable units before growing components.
+- MUST keep component names in PascalCase and align file names to component names.
+- MUST refuse architecture shortcuts and provide a compliant structure.
+
+# Allowed vs Forbidden
+
+- Allowed: compose `organisms` from `molecules` + `atoms`.
+- Allowed: place dashboard layout shells in `components/layout`.
+- Forbidden: API calls in any `components/**` file.
+- Forbidden: business logic in `atoms` or `templates`.
+- Forbidden: monolithic components beyond 300 lines; split by Atomic levels.
+
+# Compliance Gate
+
+- Before implementing UI, verify target file belongs to the correct Atomic layer.
+- If target location violates this rule, redirect implementation to the correct directory.

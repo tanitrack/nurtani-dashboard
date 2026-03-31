@@ -1,0 +1,33 @@
+---
+description: Enforce TypeScript quality, forbidden patterns, and performance defaults
+alwaysApply: true
+---
+
+# TypeScript and Quality
+
+- MUST use TypeScript in all app, server, composable, and service code.
+- MUST NOT use `any`; prefer explicit interfaces, generics, or `unknown` with narrowing.
+- Keep components maintainable; split files before they exceed 300 lines.
+- Keep naming conventions strict:
+  - Components: PascalCase
+  - Composables: `useXxx`
+  - Services: `xxx.service.ts`
+
+# Forbidden Patterns
+
+- API calls inside Vue components (`components/**`) or page files (`pages/**`).
+- Heavy business logic in `atoms` and `molecules`.
+- Rebuilding shadcn base components manually.
+- Mixing UI behavior into service files.
+
+# Performance Defaults
+
+- Lazy-load heavy `organisms` where appropriate.
+- Prefer `computed` for derived state over broad `watch` usage.
+- Avoid unnecessary reactive wrappers and deep watchers.
+- Keep state minimal and colocated unless global sharing is required.
+
+# Compliance Gate
+
+- If a change introduces `any`, replace with concrete types before finalizing.
+- If a component grows too large, split into molecule/organism/template units.

@@ -1,0 +1,29 @@
+---
+description: Enforce shadcn-vue-first UI composition and MCP-docs-first behavior
+alwaysApply: true
+---
+
+# shadcn-vue UI Source of Truth
+
+- Base UI primitives MUST come from shadcn-vue patterns/components.
+- MUST NOT rebuild base controls manually (`button`, `input`, `dialog`, `card`, `tabs`, `select`, `table`).
+- Before UI generation or edits, MUST consult shadcn-vue MCP documentation first, then implement.
+- MUST NEVER assume props/events/slots for shadcn-based components without checking docs.
+
+# Composition Guidance
+
+- Use `components/atoms` as thin wrappers around shadcn-vue building blocks.
+- Build `molecules` and `organisms` by composing atoms, not by duplicating primitive behavior.
+- Keep styling consistent with the existing shadcn-vue approach and utility classes.
+- Avoid overriding shadcn core behavior unless required by product requirements.
+
+# Forbidden
+
+- Creating ad-hoc replacements for standard shadcn primitives.
+- Introducing custom APIs for atoms that conflict with underlying shadcn behavior.
+- Mixing business logic into shadcn atom wrappers.
+
+# Compliance Gate
+
+- If shadcn MCP docs are not checked first, pause implementation and fetch docs before coding.
+- If requested UI conflicts with official shadcn patterns, provide a compliant shadcn-based alternative.

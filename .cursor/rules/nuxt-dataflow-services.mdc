@@ -1,0 +1,30 @@
+---
+description: Enforce Nuxt data-flow and service-layer API boundaries
+alwaysApply: true
+---
+
+# Nuxt Data Flow Rules
+
+- MUST enforce flow: `Page -> Composable -> Service -> API`.
+- `pages/**` and `components/**` MUST NEVER call `$fetch`, `useFetch`, or `useAsyncData` directly against API endpoints.
+- `composables/**` MUST orchestrate state and control flow (`data`, `loading`, `error`) and call services.
+- `services/**` MUST contain API request logic only (transport, endpoint, response mapping).
+- `server/api/**` MUST contain endpoint handlers and server-side logic only.
+
+# Service and Composable Conventions
+
+- Composable naming: `useXxx`.
+- Service naming: `xxx.service.ts`.
+- Services MUST NOT contain UI concerns (toasts, modal state, DOM behavior).
+- Components/pages/layouts/middleware MUST NOT import API clients directly when a service exists.
+
+# Allowed vs Forbidden
+
+- Allowed: `useUsers()` calls `user.service.ts`, returns `{ data, loading, error, fetchUsers }`.
+- Forbidden: direct API calls from `components/**`, `pages/**`, `layouts/**`, `middleware/**`.
+- Forbidden: business workflow logic inside service files.
+
+# Compliance Gate
+
+- If a request asks for direct API call in page/component, refuse and move logic to composable + service.
+- When creating a new service, enforce `xxx.service.ts` naming and composable consumption.
