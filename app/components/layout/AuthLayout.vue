@@ -44,7 +44,7 @@ defineProps<{
 
     <!-- Right: Form Side -->
     <div
-      class="flex h-full items-center justify-center p-8 bg-white overflow-y-auto lg:py-20 lg:px-0 no-scrollbar"
+      class="flex h-full items-center justify-center p-8 bg-background-secondary overflow-y-auto lg:py-20 lg:px-0 no-scrollbar"
     >
       <div class="w-full max-w-lg my-auto">
         <slot />

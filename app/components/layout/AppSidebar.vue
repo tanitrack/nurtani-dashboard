@@ -32,16 +32,6 @@ const teams: {
   },
 ];
 
-const user: {
-  name: string;
-  email: string;
-  avatar: string;
-} = {
-  name: "Dian Pratama",
-  email: "dianpratama2@gmail.com",
-  avatar: "/avatars/avatartion.png",
-};
-
 const { sidebar } = useAppSettings();
 </script>
 
@@ -77,9 +67,6 @@ const { sidebar } = useAppSettings();
         />
       </SidebarGroup>
     </SidebarContent>
-    <SidebarFooter>
-      <AppSidebarNavFooter :user="user" />
-    </SidebarFooter>
     <SidebarRail />
   </Sidebar>
 </template>

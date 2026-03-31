@@ -15,6 +15,7 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
@@ -77,6 +78,7 @@
 
   /* Base */
   --background: #ffffff;
+  --background-secondary: #FFFDF5;
   --foreground: #101828;
 
   /* Card / Popover */
@@ -93,8 +95,8 @@
   --secondary-foreground: #101828;
 
   /* Accent */
-  --accent: #4c39ef;
-  --accent-foreground: #ffffff;
+  --accent: #f0fdf4;
+  --accent-foreground: #1a4d2e;
 
   /* Muted / Alt */
   --muted: #f7fee7;

@@ -1,196 +1,249 @@
-<script setup lang="ts">
-import NumberFlow from "@number-flow/vue";
-import { TrendingDown, TrendingUp, TrendingUpIcon } from "lucide-vue-next";
-
-const dataCard = ref({
-  totalRevenue: 0,
-  newCustomers: 0,
-  activeAccount: 0,
-  growthRate: 0,
-});
-
-onMounted(() => {
-  dataCard.value = {
-    totalRevenue: 1250.44,
-    newCustomers: 1234,
-    activeAccount: 45678,
-    growthRate: 4.5,
-  };
-});
-
-const timeRange = ref("30d");
-
-const isDesktop = useMediaQuery("(min-width: 768px)");
-watch(
-  isDesktop,
-  () => {
-    if (isDesktop.value) {
-      timeRange.value = "30d";
-    } else {
-      timeRange.value = "7d";
-    }
-  },
-  { immediate: true },
-);
-</script>
-
 <template>
-  <div class="w-full flex flex-col gap-4">
-    <div class="flex flex-wrap items-center justify-between gap-2">
-      <h2 class="text-2xl font-bold tracking-tight">Dashboard</h2>
-      <div class="flex items-center space-x-2">
-        <DateRangePicker />
-        <Button>Download</Button>
+  <div class="flex flex-col gap-10 pb-10">
+    <!-- Greeting Section -->
+    <div class="flex flex-col gap-1.5">
+      <h2 class="text-2xl font-bold tracking-tight text-foreground">
+        Selamat Pagi, Pak Budi 👋
+      </h2>
+      <p class="text-muted-foreground text-sm">
+        Pantau aktivitas dan transaksi Anda dengan mudah
+      </p>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+      <!-- Green Points Card -->
+      <div
+        class="lg:col-span-2 relative overflow-hidden flex flex-col gap-8 p-8 bg-linear-to-br from-primary to-[#008236] rounded-2xl text-white shadow-xl shadow-primary/10"
+      >
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <Icon name="i-lucide-leaf" class="size-6 text-white/90" />
+            <span class="text-sm font-semibold text-white/90"
+              >Green Points Terkumpul</span
+            >
+          </div>
+          <Icon name="i-lucide-info" class="size-5 text-white/40" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <div class="flex items-baseline gap-2">
+            <span class="text-4xl font-bold tracking-tighter">8,420</span>
+            <span class="text-lg font-medium text-white/80">poin</span>
+          </div>
+        </div>
+
+        <div class="mt-auto space-y-4">
+          <div class="flex flex-col gap-1.5">
+            <p class="text-xs font-semibold text-white/90">
+              Level 4: Pelopor Keberlanjutan
+            </p>
+            <div
+              class="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-white/60"
+            >
+              <span>Progres ke tingkat berikutnya</span>
+              <span>84%</span>
+            </div>
+          </div>
+          <div class="h-2.5 w-full bg-white/10 rounded-full overflow-hidden">
+            <div
+              class="h-full bg-white/90 rounded-full transition-all duration-500"
+              style="width: 84%"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Total Transaksi Card -->
+      <div class="flex flex-col gap-4">
+        <div
+          class="relative overflow-hidden flex flex-col h-full gap-6 p-8 bg-[#ffeead] rounded-2xl border-yellow-200"
+        >
+          <p
+            class="text-[10px] font-bold text-yellow-800 uppercase tracking-widest"
+          >
+            TOTAL TRANSAKSI
+          </p>
+          <div class="flex flex-col gap-3 z-10">
+            <h3 class="text-3xl font-bold text-[#18402F]">Rp 42.5 Jt</h3>
+            <div class="flex items-center gap-2">
+              <Badge
+                class="bg-white text-primary hover:bg-white border-0 font-bold px-2 py-0.5 shadow-xs"
+              >
+                <Icon name="i-lucide-trending-up" class="size-3.5 mr-1" />
+                +12.5%
+              </Badge>
+              <span
+                class="text-[10px] font-bold text-yellow-800/60 uppercase tracking-wider"
+                >dari bulan lalu</span
+              >
+            </div>
+          </div>
+
+          <!-- Banknote Illustration Background -->
+          <div
+            class="absolute -bottom-4 -right-4 opacity-[0.05] scale-150 rotate-[-10deg]"
+          >
+            <Icon name="i-lucide-banknote" class="size-32 text-yellow-900" />
+          </div>
+        </div>
+
+        <div class="mt-auto flex gap-3">
+          <Button
+            class="grow bg-primary hover:bg-primary/90 text-white font-bold h-11"
+          >
+            <Icon name="i-lucide-message-circle" class="size-4 mr-2" />
+            WhatsApp Bot
+          </Button>
+        </div>
+      </div>
+
+      <!-- Total Produk Card -->
+      <div class="flex flex-col gap-4">
+        <div
+          class="relative overflow-hidden flex flex-col h-full gap-6 p-8 bg-white rounded-2xl"
+        >
+          <p
+            class="text-[10px] font-bold text-muted-foreground uppercase tracking-widest"
+          >
+            TOTAL PRODUK
+          </p>
+          <div class="flex flex-col gap-1 z-10">
+            <h3 class="text-4xl font-bold text-foreground">1,248</h3>
+            <div class="flex items-center gap-2 mt-2">
+              <Icon name="i-lucide-package" class="size-4 text-primary" />
+              <span
+                class="text-[10px] font-bold text-muted-foreground uppercase tracking-wider"
+                >Produk tersedia</span
+              >
+            </div>
+          </div>
+
+          <!-- Truck Illustration Background -->
+          <div
+            class="absolute -bottom-4 -right-4 opacity-[0.04] scale-150 rotate-[-5deg]"
+          >
+            <Icon name="i-lucide-truck" class="size-36 text-primary" />
+          </div>
+        </div>
+
+        <div class="mt-auto z-10">
+          <Button
+            variant="outline"
+            class="w-full font-bold h-11 transition-colors border-primary"
+          >
+            <Icon name="i-lucide-download" class="size-4 mr-2" />
+            Download Report
+          </Button>
+        </div>
       </div>
     </div>
-    <main class="@container/main flex flex-1 flex-col gap-4 md:gap-8">
-      <div
-        class="grid grid-cols-1 gap-4 *:data-[slot=card]:bg-linear-to-t *:data-[slot=card]:shadow-xs @xl/main:grid-cols-2 @5xl/main:grid-cols-4"
-      >
-        <Card class="@container/card">
-          <CardHeader>
-            <CardDescription>Total Revenue</CardDescription>
-            <CardTitle
-              class="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl"
+
+    <!-- Riwayat Terakhir -->
+    <div class="flex flex-col gap-6">
+      <h3 class="text-lg font-bold text-foreground tracking-tight">
+        Riwayat Terakhir
+      </h3>
+
+      <div class="grid border rounded-2xl p-3 bg-white">
+        <!-- Item 1: Pembayaran -->
+        <div
+          class="flex items-center gap-6 p-5 hover:border-primary/20 transition-all cursor-pointer group shadow-xs"
+        >
+          <div
+            class="size-12 bg-blue-50 flex items-center justify-center shrink-0"
+          >
+            <Icon name="i-lucide-wallet" class="size-6 text-blue-500" />
+          </div>
+          <div class="flex flex-col flex-1 min-w-0">
+            <p
+              class="text-sm font-bold text-foreground group-hover:text-primary transition-colors"
             >
-              <NumberFlow
-                :value="dataCard.totalRevenue"
-                :format="{
-                  style: 'currency',
-                  currency: 'USD',
-                  trailingZeroDisplay: 'stripIfInteger',
-                }"
-              />
-            </CardTitle>
-            <CardAction>
-              <Badge variant="outline">
-                <TrendingUpIcon />
-                +12.5%
-              </Badge>
-            </CardAction>
-          </CardHeader>
-          <CardFooter class="flex-col items-start gap-1.5 text-sm">
-            <div class="line-clamp-1 flex gap-2 font-medium">
-              Trending up this month <TrendingUp class="size-4" />
-            </div>
-            <div class="text-muted-foreground">
-              Visitors for the last 6 months
-            </div>
-          </CardFooter>
-        </Card>
-        <Card class="@container/card">
-          <CardHeader>
-            <CardDescription>New Customers</CardDescription>
-            <CardTitle
-              class="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl"
+              Pembayaran Diterima
+            </p>
+            <p
+              class="text-[10px] text-muted-foreground font-medium truncate mt-0.5"
             >
-              <NumberFlow :value="dataCard.newCustomers" />
-            </CardTitle>
-            <CardAction>
-              <Badge variant="outline">
-                <TrendingDown />
-                -20%
-              </Badge>
-            </CardAction>
-          </CardHeader>
-          <CardFooter class="flex-col items-start gap-1.5 text-sm">
-            <div class="line-clamp-1 flex gap-2 font-medium">
-              Down 20% this period <TrendingDown class="size-4" />
-            </div>
-            <div class="text-muted-foreground">Acquisition needs attention</div>
-          </CardFooter>
-        </Card>
-        <Card class="@container/card">
-          <CardHeader>
-            <CardDescription>Active Accounts</CardDescription>
-            <CardTitle
-              class="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl"
+              Saldo hasil penjualan dari Toko Berkah berhasil masuk. Dana akan
+              diteruskan ke rekening terdaftar dalam 1x24 jam.
+            </p>
+          </div>
+          <div class="flex flex-col items-end shrink-0 gap-1">
+            <p class="text-[10px] font-bold text-muted-foreground/60 uppercase">
+              5 Jam lalu
+            </p>
+            <p class="text-xs font-bold text-foreground">Rp 2.5 Juta</p>
+          </div>
+        </div>
+
+        <!-- Item 2: Verifikasi -->
+        <div
+          class="flex items-center gap-6 p-5 hover:border-primary/20 transition-all cursor-pointer group shadow-xs"
+        >
+          <div
+            class="size-12 bg-green-50 flex items-center justify-center shrink-0"
+          >
+            <Icon name="i-lucide-check-circle" class="size-6 text-green-500" />
+          </div>
+          <div class="flex flex-col flex-1 min-w-0">
+            <p
+              class="text-sm font-bold text-foreground group-hover:text-primary transition-colors"
             >
-              <NumberFlow :value="dataCard.activeAccount" />
-            </CardTitle>
-            <CardAction>
-              <Badge variant="outline">
-                <TrendingUp />
-                +12.5%
-              </Badge>
-            </CardAction>
-          </CardHeader>
-          <CardFooter class="flex-col items-start gap-1.5 text-sm">
-            <div class="line-clamp-1 flex gap-2 font-medium">
-              Strong user retention <TrendingUp class="size-4" />
-            </div>
-            <div class="text-muted-foreground">Engagement exceed targets</div>
-          </CardFooter>
-        </Card>
-        <Card class="@container/card">
-          <CardHeader>
-            <CardDescription>Growth Rate</CardDescription>
-            <CardTitle
-              class="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl"
+              Kentang Organik berhasil diverifikasi
+            </p>
+            <p
+              class="text-[10px] text-muted-foreground font-medium truncate mt-0.5"
             >
-              <NumberFlow :value="dataCard.growthRate" suffix="%" />
-            </CardTitle>
-            <CardAction>
-              <Badge variant="outline">
-                <TrendingUp />
-                +4.5%
-              </Badge>
-            </CardAction>
-          </CardHeader>
-          <CardFooter class="flex-col items-start gap-1.5 text-sm">
-            <div class="line-clamp-1 flex gap-2 font-medium">
-              Steady performance increase <TrendingUp class="size-4" />
-            </div>
-            <div class="text-muted-foreground">Meets growth projections</div>
-          </CardFooter>
-        </Card>
+              Data harian yang Anda kirim telah divalidasi oleh sistem.
+              Sertifikat digital untuk produk Kentang Organik kini aktif.
+            </p>
+          </div>
+          <div class="flex flex-col items-end shrink-0 gap-1">
+            <p class="text-[10px] font-bold text-muted-foreground/60 uppercase">
+              2 Jam lalu
+            </p>
+            <p class="text-xs font-bold text-primary">+150 poin</p>
+          </div>
+        </div>
+
+        <!-- Item 3: Stok -->
+        <div
+          class="flex items-center gap-6 p-5 hover:border-primary/20 transition-all cursor-pointer group shadow-xs"
+        >
+          <div
+            class="size-12 bg-orange-50 flex items-center justify-center shrink-0"
+          >
+            <Icon
+              name="i-lucide-alert-triangle"
+              class="size-6 text-orange-500"
+            />
+          </div>
+          <div class="flex flex-col flex-1 min-w-0">
+            <p
+              class="text-sm font-bold text-foreground group-hover:text-primary transition-colors"
+            >
+              Stok Menipis
+            </p>
+            <p
+              class="text-[10px] text-muted-foreground font-medium truncate mt-0.5"
+            >
+              Persediaan Pupuk B-Type di gudang Anda tersisa kurang dari 10%.
+              Segera lakukan pengisian untuk menjaga jadwal tanam.
+            </p>
+          </div>
+          <div class="flex flex-col items-end shrink-0 gap-1">
+            <p
+              class="text-[10px] font-bold text-muted-foreground/60 uppercase tracking-wider"
+            >
+              Kemarin
+            </p>
+            <Icon
+              name="i-lucide-chevron-right"
+              class="size-4 text-muted-foreground/40 group-hover:text-primary transition-colors"
+            />
+          </div>
+        </div>
       </div>
-      <Card class="@container/card">
-        <CardHeader>
-          <CardTitle>Total Visitors</CardTitle>
-          <CardDescription>
-            <span className="hidden @[540px]/card:block">
-              Total for the last 3 months
-            </span>
-            <span className="@[540px]/card:hidden">Last 3 months</span>
-          </CardDescription>
-          <CardAction>
-            <ToggleGroup
-              v-model="timeRange"
-              type="single"
-              variant="outline"
-              class="hidden *:data-[slot=toggle-group-item]:px-4! @[767px]/card:flex"
-            >
-              <ToggleGroupItem value="90d"> Last 3 months </ToggleGroupItem>
-              <ToggleGroupItem value="30d"> Last 30 days </ToggleGroupItem>
-              <ToggleGroupItem value="7d"> Last 7 days </ToggleGroupItem>
-            </ToggleGroup>
-            <Select v-model="timeRange">
-              <SelectTrigger
-                class="flex w-40 **:data-[slot=select-value]:block **:data-[slot=select-value]:truncate @[767px]/card:hidden"
-                size="sm"
-                aria-label="Select a value"
-              >
-                <SelectValue placeholder="Last 3 months" />
-              </SelectTrigger>
-              <SelectContent class="rounded-xl">
-                <SelectItem value="90d" class="rounded-lg">
-                  Last 3 months
-                </SelectItem>
-                <SelectItem value="30d" class="rounded-lg">
-                  Last 30 days
-                </SelectItem>
-                <SelectItem value="7d" class="rounded-lg">
-                  Last 7 days
-                </SelectItem>
-              </SelectContent>
-            </Select>
-          </CardAction>
-        </CardHeader>
-        <CardContent>
-          <DashboardTotalVisitors :time-range="timeRange" />
-        </CardContent>
-      </Card>
-    </main>
+    </div>
   </div>
 </template>
