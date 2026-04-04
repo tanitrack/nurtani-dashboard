@@ -1,3 +1,9 @@
+<script setup lang="ts">
+useHead({
+  title: "Home",
+})
+</script>
+
 <template>
   <div class="flex flex-col gap-8 lg:gap-10 pb-10">
     <!-- Greeting Section -->

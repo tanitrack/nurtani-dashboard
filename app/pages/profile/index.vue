@@ -10,18 +10,24 @@ const profile = {
   whatsapp: "+62 812-3456- 7890",
   email: "budi.santoso@farm.id",
   address: "Jl. Raya Maribaya No. 12, Lembang",
-};
+}
 
 function formatPoints(value: number) {
-  return new Intl.NumberFormat("id-ID").format(value);
+  return new Intl.NumberFormat("id-ID").format(value)
 }
+
+useHead({
+  title: "Profil",
+})
 </script>
 
 <template>
   <div class="space-y-6 pb-10">
     <!-- Page Header -->
     <div class="flex items-center justify-between">
-      <h1 class="text-2xl font-bold text-foreground">Detail Profil</h1>
+      <h1 class="text-2xl font-bold text-foreground">
+        Detail Profil
+      </h1>
       <nav class="flex items-center gap-1.5 text-sm text-muted-foreground">
         <span>Profil</span>
         <span>/</span>
@@ -44,7 +50,7 @@ function formatPoints(value: number) {
                 :src="profile.avatar"
                 :alt="profile.name"
                 class="size-full object-cover"
-              />
+              >
             </div>
             <!-- Green verified badge -->
             <div
@@ -76,9 +82,7 @@ function formatPoints(value: number) {
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-3">
               <Icon name="i-lucide-leaf" class="size-5 text-white/90" />
-              <span class="text-sm font-semibold text-white/90"
-                >Green Points Terkumpul</span
-              >
+              <span class="text-sm font-semibold text-white/90">Green Points Terkumpul</span>
             </div>
             <Icon name="i-lucide-info" class="size-5 text-white/40" />
           </div>
@@ -262,7 +266,7 @@ function formatPoints(value: number) {
           alt=""
           class="absolute inset-0 size-full object-cover"
           aria-hidden="true"
-        />
+        >
       </div>
     </div>
   </div>

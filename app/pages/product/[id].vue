@@ -6,6 +6,10 @@ const productId = route.params.id as string
 
 const product = computed(() => mockProducts.find(p => p.id === productId))
 
+useHead({
+  title: computed(() => product.value?.name ?? "Produk"),
+})
+
 const activeImageIndex = ref(0)
 const activeImage = computed(
   () =>

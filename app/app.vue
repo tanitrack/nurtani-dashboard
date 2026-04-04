@@ -27,9 +27,8 @@ useHead({
   },
 })
 
-const title = "Nuxt Shadcn-Vue TailwindCSS 4 - Dashboard Template"
-const description
-  = "This dashboard, built with Nuxt, Shadcn Vue, and TailwindCSS. It includes a dark mode toggle and is optimized for performance and data efficiency."
+const title = "NurTani"
+const description = "Hulu Sehat, Hilir Bahagia"
 
 useSeoMeta({
   title,

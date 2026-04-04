@@ -4,6 +4,10 @@ const router = useRouter()
 definePageMeta({
   layout: "blank",
 })
+
+useHead({
+  title: "Daftar",
+})
 </script>
 
 <template>

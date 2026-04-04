@@ -4,6 +4,13 @@ export default defineNuxtConfig({
   srcDir: "app",
   devtools: { enabled: true },
 
+  app: {
+    head: {
+      titleTemplate: "%s | NurTani",
+      title: "NurTani",
+    },
+  },
+
   css: ["~/assets/css/tailwind.css"],
   vite: {
     plugins: [tailwindcss()],

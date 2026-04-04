@@ -2,6 +2,10 @@
 import type { TransactionStatus } from "@/types/transaction"
 import { mockTransactions } from "@/mocks/transaction"
 
+useHead({
+  title: "Riwayat",
+})
+
 const search = ref("")
 const selectedCategory = ref("Semua Kategori")
 const selectedStatus = ref("Semua Status")
@@ -15,12 +19,12 @@ const filteredTransactions = computed(() => {
     const matchesSearch = trx.productName
       .toLowerCase()
       .includes(search.value.toLowerCase())
-    const matchesCategory =
-      selectedCategory.value === "Semua Kategori"
-      || trx.category === selectedCategory.value
-    const matchesStatus =
-      selectedStatus.value === "Semua Status"
-      || trx.status === selectedStatus.value
+    const matchesCategory
+      = selectedCategory.value === "Semua Kategori"
+        || trx.category === selectedCategory.value
+    const matchesStatus
+      = selectedStatus.value === "Semua Status"
+        || trx.status === selectedStatus.value
     return matchesSearch && matchesCategory && matchesStatus
   })
 })
