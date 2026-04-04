@@ -1,9 +1,9 @@
 <script setup lang="ts">
-const router = useRouter();
+const router = useRouter()
 
 definePageMeta({
   layout: "blank",
-});
+})
 </script>
 
 <template>
@@ -20,7 +20,7 @@ definePageMeta({
       </div>
 
       <!-- Form -->
-      <form @submit.prevent="router.push('/')" class="grid gap-6">
+      <form class="grid gap-6" @submit.prevent="router.push('/')">
         <!-- WhatsApp Field -->
         <Field name="whatsapp">
           <Label>
@@ -29,9 +29,7 @@ definePageMeta({
           <div
             class="relative flex items-center mt-1.5 focus-within:ring-2 focus-within:ring-primary/20 rounded-lg border border-input px-3 py-2 transition-all"
           >
-            <span class="text-muted-foreground font-medium border-r pr-3 mr-3"
-              >+62</span
-            >
+            <span class="text-muted-foreground font-medium border-r pr-3 mr-3">+62</span>
             <Input
               type="tel"
               placeholder="812 3456 7890"

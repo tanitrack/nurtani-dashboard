@@ -1,49 +1,49 @@
 <script setup lang="ts">
-const route = useRoute();
+const route = useRoute()
 
 function setLinks() {
-  const path = route?.fullPath || "/";
+  const path = route?.fullPath || "/"
   if (path === "/") {
-    return [{ title: "Home", href: "/" }];
+    return [{ title: "Home", href: "/" }]
   }
 
-  const segments = path.split("/").filter((item) => item !== "");
+  const segments = path.split("/").filter(item => item !== "")
 
   const breadcrumbs = segments.map((item, index) => {
-    const str = item.replace(/-/g, " ");
+    const str = item.replace(/-/g, " ")
     const title = str
       .split(" ")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-      .join(" ");
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(" ")
 
     return {
       title,
       href: `/${segments.slice(0, index + 1).join("/")}`,
-    };
-  });
+    }
+  })
 
-  return [{ title: "Home", href: "/" }, ...breadcrumbs];
+  return [{ title: "Home", href: "/" }, ...breadcrumbs]
 }
 
 const links = ref<
   {
-    title: string;
-    href: string;
+    title: string
+    href: string
   }[]
->([]);
+>([])
 
 onMounted(() => {
-  links.value = setLinks();
-});
+  links.value = setLinks()
+})
 
 watch(
   () => route.fullPath,
   (val) => {
     if (val) {
-      links.value = setLinks();
+      links.value = setLinks()
     }
   },
-);
+)
 </script>
 
 <template>

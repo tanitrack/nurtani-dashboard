@@ -1,9 +1,9 @@
 <script setup lang="ts">
-const router = useRouter();
+const router = useRouter()
 
 definePageMeta({
   layout: "blank",
-});
+})
 </script>
 
 <template>
@@ -20,7 +20,7 @@ definePageMeta({
       </div>
 
       <!-- Form -->
-      <form @submit.prevent="router.push('/login')" class="grid gap-5">
+      <form class="grid gap-5" @submit.prevent="router.push('/login')">
         <!-- Name Field -->
         <Field name="fullName">
           <Label> Nama Lengkap <span class="text-destructive">*</span> </Label>
@@ -41,8 +41,7 @@ definePageMeta({
             >
               <span
                 class="text-muted-foreground font-medium border-r pr-3 mr-3 segment-border"
-                >+62</span
-              >
+              >+62</span>
               <Input
                 type="tel"
                 placeholder="812 3456 7890"
@@ -94,7 +93,7 @@ definePageMeta({
                 JPG, PNG hingga 5MB
               </p>
             </div>
-            <input type="file" class="hidden" accept="image/*" />
+            <input type="file" class="hidden" accept="image/*">
           </div>
         </div>
 
@@ -112,13 +111,13 @@ definePageMeta({
           class="text-center text-[10px] text-muted-foreground/80 leading-relaxed max-w-sm mx-auto"
         >
           Dengan mendaftar, Anda menyetujui
-          <NuxtLink to="#" class="text-foreground font-semibold hover:underline"
-            >Syarat & Ketentuan</NuxtLink
-          >
+          <NuxtLink to="#" class="text-foreground font-semibold hover:underline">
+            Syarat & Ketentuan
+          </NuxtLink>
           serta
-          <NuxtLink to="#" class="text-foreground font-semibold hover:underline"
-            >Kebijakan Privasi</NuxtLink
-          >
+          <NuxtLink to="#" class="text-foreground font-semibold hover:underline">
+            Kebijakan Privasi
+          </NuxtLink>
           kami.
         </p>
       </form>

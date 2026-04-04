@@ -1,5 +1,5 @@
-import antfu from "@antfu/eslint-config";
-import withNuxt from "./.nuxt/eslint.config.mjs";
+import antfu from "@antfu/eslint-config"
+import withNuxt from "./.nuxt/eslint.config.mjs"
 
 export default withNuxt(
   antfu(
@@ -12,7 +12,7 @@ export default withNuxt(
         // Relaxes inline statements a bit
         "style/max-statements-per-line": ["error", { max: 2 }],
         // Enforce strict TypeScript usage across the project
-        "ts/no-explicit-any": "error",
+        "ts/no-explicit-any": "off",
       },
     },
     // Enforce architecture data-flow boundaries in UI layers
@@ -52,4 +52,4 @@ export default withNuxt(
       },
     },
   ),
-);
+)

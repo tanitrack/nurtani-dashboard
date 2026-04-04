@@ -10,4 +10,4 @@ export default defineAppConfig({
       variant: "sidebar", // 'sidebar' | 'floating' | 'inset'
     },
   },
-});
+})

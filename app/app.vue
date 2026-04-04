@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { ConfigProvider } from "reka-ui";
-import { Toaster } from "@/components/atoms/sonner";
-import "vue-sonner/style.css";
+import { ConfigProvider } from "reka-ui"
+import { Toaster } from "@/components/atoms/sonner"
+import "vue-sonner/style.css"
 
-const colorMode = useColorMode();
+const colorMode = useColorMode()
 const color = computed(() =>
   colorMode.value === "dark" ? "#09090b" : "#ffffff",
-);
-const { theme } = useAppSettings();
+)
+const { theme } = useAppSettings()
 
 useHead({
   meta: [
@@ -25,11 +25,11 @@ useHead({
         `color-${theme.value?.color || "default"} theme-${theme.value?.type || "default"}`,
     ),
   },
-});
+})
 
-const title = "Nuxt Shadcn-Vue TailwindCSS 4 - Dashboard Template";
-const description =
-  "This dashboard, built with Nuxt, Shadcn Vue, and TailwindCSS. It includes a dark mode toggle and is optimized for performance and data efficiency.";
+const title = "Nuxt Shadcn-Vue TailwindCSS 4 - Dashboard Template"
+const description
+  = "This dashboard, built with Nuxt, Shadcn Vue, and TailwindCSS. It includes a dark mode toggle and is optimized for performance and data efficiency."
 
 useSeoMeta({
   title,
@@ -42,16 +42,16 @@ useSeoMeta({
   twitterDescription: description,
   twitterImage: "https://nuxt-shadcn-dashboard.vercel.app/social-card.png",
   twitterCard: "summary_large_image",
-});
+})
 
-const router = useRouter();
+const router = useRouter()
 
 defineShortcuts({
   "G-H": () => router.push("/"),
-});
+})
 
-const textDirection = useTextDirection({ initialValue: "ltr" });
-const dir = computed(() => (textDirection.value === "rtl" ? "rtl" : "ltr"));
+const textDirection = useTextDirection({ initialValue: "ltr" })
+const dir = computed(() => (textDirection.value === "rtl" ? "rtl" : "ltr"))
 </script>
 
 <template>

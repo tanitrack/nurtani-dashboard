@@ -1,7 +1,7 @@
 import type { ColumnDef } from '@tanstack/vue-table'
 import type { Task } from '@/components/organisms/tasks/data/schema'
-import tasks from '@/components/organisms/tasks/data/tasks.json'
 import { columns } from '@/components/organisms/tasks/components/columns'
+import tasks from '@/components/organisms/tasks/data/tasks.json'
 
 export interface TasksPayload {
   data: Task[]

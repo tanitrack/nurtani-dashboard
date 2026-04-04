@@ -1,19 +1,20 @@
 <script setup lang="ts">
-import type { NavGroup, NavLink, NavSectionTitle } from "~/types/nav";
-import { navMenu, navMenuBottom } from "~/constants/menus";
+import type { NavGroup, NavLink, NavSectionTitle } from "~/types/nav"
+import { navMenu, navMenuBottom } from "~/constants/menus"
 
 function resolveNavItemComponent(
   item: NavLink | NavGroup | NavSectionTitle,
 ): any {
-  if ("children" in item) return resolveComponent("AppSidebarNavGroup");
+  if ("children" in item)
+    return resolveComponent("AppSidebarNavGroup")
 
-  return resolveComponent("AppSidebarNavLink");
+  return resolveComponent("AppSidebarNavLink")
 }
 
 const teams: {
-  name: string;
-  logo: string;
-  plan: string;
+  name: string
+  logo: string
+  plan: string
 }[] = [
   {
     name: "Acme Inc",
@@ -30,9 +31,9 @@ const teams: {
     logo: "i-lucide-command",
     plan: "Free",
   },
-];
+]
 
-const { sidebar } = useAppSettings();
+const { sidebar } = useAppSettings()
 </script>
 
 <template>

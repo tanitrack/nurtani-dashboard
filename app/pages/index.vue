@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-10 pb-10">
+  <div class="flex flex-col gap-8 lg:gap-10 pb-10">
     <!-- Greeting Section -->
     <div class="flex flex-col gap-1.5">
       <h2 class="text-2xl font-bold tracking-tight text-foreground">
@@ -11,17 +11,17 @@
     </div>
 
     <!-- Stats Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       <!-- Green Points Card -->
       <div
-        class="lg:col-span-2 relative overflow-hidden flex flex-col gap-8 p-8 bg-linear-to-br from-primary to-[#008236] rounded-2xl text-white shadow-xl shadow-primary/10"
+        class="md:col-span-2 relative overflow-hidden flex flex-col gap-6 lg:gap-8 p-6 lg:p-8 bg-linear-to-br from-primary to-[#008236] rounded-2xl text-white shadow-xl shadow-primary/10"
       >
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-3">
             <Icon name="i-lucide-leaf" class="size-6 text-white/90" />
-            <span class="text-sm font-semibold text-white/90"
-              >Green Points Terkumpul</span
-            >
+            <span class="text-sm font-semibold text-white/90">
+              Green Points Terkumpul
+            </span>
           </div>
           <Icon name="i-lucide-info" class="size-5 text-white/40" />
         </div>
@@ -49,7 +49,7 @@
             <div
               class="h-full bg-white/90 rounded-full transition-all duration-500"
               style="width: 84%"
-            ></div>
+            />
           </div>
         </div>
       </div>
@@ -57,7 +57,7 @@
       <!-- Total Transaksi Card -->
       <div class="flex flex-col gap-4">
         <div
-          class="relative overflow-hidden flex flex-col h-full gap-6 p-8 bg-[#ffeead] rounded-2xl border-yellow-200"
+          class="relative overflow-hidden flex flex-col h-full gap-6 p-6 lg:p-8 bg-[#ffeead] rounded-2xl border-yellow-200"
         >
           <p
             class="text-[10px] font-bold text-yellow-800 uppercase tracking-widest"
@@ -65,7 +65,9 @@
             TOTAL TRANSAKSI
           </p>
           <div class="flex flex-col gap-3 z-10">
-            <h3 class="text-3xl font-bold text-[#18402F]">Rp 42.5 Jt</h3>
+            <h3 class="text-3xl font-bold text-[#18402F]">
+              Rp 42.5 Jt
+            </h3>
             <div class="flex items-center gap-2">
               <Badge
                 class="bg-white text-primary hover:bg-white border-0 font-bold px-2 py-0.5 shadow-xs"
@@ -75,8 +77,9 @@
               </Badge>
               <span
                 class="text-[10px] font-bold text-yellow-800/60 uppercase tracking-wider"
-                >dari bulan lalu</span
               >
+                dari bulan lalu
+              </span>
             </div>
           </div>
 
@@ -101,7 +104,7 @@
       <!-- Total Produk Card -->
       <div class="flex flex-col gap-4">
         <div
-          class="relative overflow-hidden flex flex-col h-full gap-6 p-8 bg-white rounded-2xl"
+          class="relative overflow-hidden flex flex-col h-full gap-6 p-6 lg:p-8 bg-white rounded-2xl"
         >
           <p
             class="text-[10px] font-bold text-muted-foreground uppercase tracking-widest"
@@ -109,13 +112,16 @@
             TOTAL PRODUK
           </p>
           <div class="flex flex-col gap-1 z-10">
-            <h3 class="text-4xl font-bold text-foreground">1,248</h3>
+            <h3 class="text-4xl font-bold text-foreground">
+              1,248
+            </h3>
             <div class="flex items-center gap-2 mt-2">
               <Icon name="i-lucide-package" class="size-4 text-primary" />
               <span
                 class="text-[10px] font-bold text-muted-foreground uppercase tracking-wider"
-                >Produk tersedia</span
               >
+                Produk tersedia
+              </span>
             </div>
           </div>
 
@@ -145,13 +151,13 @@
         Riwayat Terakhir
       </h3>
 
-      <div class="grid border rounded-2xl p-3 bg-white">
+      <div class="grid border rounded-2xl p-2 lg:p-3 bg-white">
         <!-- Item 1: Pembayaran -->
         <div
-          class="flex items-center gap-6 p-5 hover:border-primary/20 transition-all cursor-pointer group shadow-xs"
+          class="flex items-center gap-4 lg:gap-6 p-4 lg:p-5 hover:border-primary/20 transition-all cursor-pointer group shadow-xs border-b last:border-b-0"
         >
           <div
-            class="size-12 bg-blue-50 flex items-center justify-center shrink-0"
+            class="size-10 lg:size-12 bg-blue-50 flex items-center justify-center shrink-0"
           >
             <Icon name="i-lucide-wallet" class="size-6 text-blue-500" />
           </div>
@@ -162,7 +168,7 @@
               Pembayaran Diterima
             </p>
             <p
-              class="text-[10px] text-muted-foreground font-medium truncate mt-0.5"
+              class="text-[10px] text-muted-foreground font-medium line-clamp-2 md:line-clamp-1 mt-0.5 whitespace-normal"
             >
               Saldo hasil penjualan dari Toko Berkah berhasil masuk. Dana akan
               diteruskan ke rekening terdaftar dalam 1x24 jam.
@@ -172,16 +178,18 @@
             <p class="text-[10px] font-bold text-muted-foreground/60 uppercase">
               5 Jam lalu
             </p>
-            <p class="text-xs font-bold text-foreground">Rp 2.5 Juta</p>
+            <p class="text-xs font-bold text-foreground">
+              Rp 2.5 Juta
+            </p>
           </div>
         </div>
 
         <!-- Item 2: Verifikasi -->
         <div
-          class="flex items-center gap-6 p-5 hover:border-primary/20 transition-all cursor-pointer group shadow-xs"
+          class="flex items-center gap-4 lg:gap-6 p-4 lg:p-5 hover:border-primary/20 transition-all cursor-pointer group shadow-xs border-b last:border-b-0"
         >
           <div
-            class="size-12 bg-green-50 flex items-center justify-center shrink-0"
+            class="size-10 lg:size-12 bg-green-50 flex items-center justify-center shrink-0"
           >
             <Icon name="i-lucide-check-circle" class="size-6 text-green-500" />
           </div>
@@ -192,7 +200,7 @@
               Kentang Organik berhasil diverifikasi
             </p>
             <p
-              class="text-[10px] text-muted-foreground font-medium truncate mt-0.5"
+              class="text-[10px] text-muted-foreground font-medium line-clamp-2 md:line-clamp-1 mt-0.5 whitespace-normal"
             >
               Data harian yang Anda kirim telah divalidasi oleh sistem.
               Sertifikat digital untuk produk Kentang Organik kini aktif.
@@ -202,16 +210,18 @@
             <p class="text-[10px] font-bold text-muted-foreground/60 uppercase">
               2 Jam lalu
             </p>
-            <p class="text-xs font-bold text-primary">+150 poin</p>
+            <p class="text-xs font-bold text-primary">
+              +150 poin
+            </p>
           </div>
         </div>
 
         <!-- Item 3: Stok -->
         <div
-          class="flex items-center gap-6 p-5 hover:border-primary/20 transition-all cursor-pointer group shadow-xs"
+          class="flex items-center gap-4 lg:gap-6 p-4 lg:p-5 hover:border-primary/20 transition-all cursor-pointer group shadow-xs"
         >
           <div
-            class="size-12 bg-orange-50 flex items-center justify-center shrink-0"
+            class="size-10 lg:size-12 bg-orange-50 flex items-center justify-center shrink-0"
           >
             <Icon
               name="i-lucide-alert-triangle"
@@ -225,7 +235,7 @@
               Stok Menipis
             </p>
             <p
-              class="text-[10px] text-muted-foreground font-medium truncate mt-0.5"
+              class="text-[10px] text-muted-foreground font-medium line-clamp-2 md:line-clamp-1 mt-0.5 whitespace-normal"
             >
               Persediaan Pupuk B-Type di gudang Anda tersisa kurang dari 10%.
               Segera lakukan pengisian untuk menjaga jadwal tanam.

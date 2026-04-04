@@ -1,7 +1,7 @@
 import type { Account, Mail } from '@/components/organisms/mail/data/mails'
 import { mailService } from '@/services/mail.service'
 
-export const useMail = () => {
+export function useMail() {
   const accounts = useState<Account[]>('mail:accounts', () => [])
   const mails = useState<Mail[]>('mail:mails', () => [])
   const loading = ref(false)

@@ -1,8 +1,8 @@
-import type { Task } from '@/components/organisms/tasks/data/schema'
 import type { ColumnDef } from '@tanstack/vue-table'
+import type { Task } from '@/components/organisms/tasks/data/schema'
 import { tasksService } from '@/services/tasks.service'
 
-export const useTasks = () => {
+export function useTasks() {
   const data = useState<Task[]>('tasks:data', () => [])
   const columns = useState<ColumnDef<Task, unknown>[]>('tasks:columns', () => [])
   const loading = ref(false)
