@@ -7,6 +7,10 @@ export default withNuxt(
       rules: {
         "style/quotes": "off", // 👈 disable it
         "style/semi": "off",
+        "style/member-delimiter-style": "off", // 👈 Allow semicolons in TS interfaces/types
+        "vue/singleline-html-element-content-newline": "off", // 👈 Allow tags on single lines
+        "vue/multiline-html-element-content-newline": "off", // 👈 Allow tags on single lines even if multiline content
+        "vue/html-self-closing": "off", // 👈 Allow self-closing tags (<img/>)
 
         // Allow trailing space in comments, for possible JSDoc formattings
         "style/no-trailing-spaces": ["error", { ignoreComments: true }],
