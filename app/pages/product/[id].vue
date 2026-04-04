@@ -98,9 +98,7 @@ const progress = 65
       <div class="flex flex-col gap-5">
         <!-- Category tag + rating -->
         <div class="flex items-center gap-3 flex-wrap">
-          <span
-            class="text-xs font-bold uppercase tracking-widest text-[#1a4d2e] bg-[#E8F2EC] px-3 py-1 rounded-md"
-          >
+          <span class="text-xs font-bold uppercase tracking-widest text-[#1a4d2e] bg-[#E8F2EC] px-3 py-1 rounded-md">
             {{ product.category }} Hijau
           </span>
           <div class="flex items-center gap-1.5">
@@ -108,9 +106,9 @@ const progress = 65
               name="i-lucide-star"
               class="size-4 fill-[#FFBC11] text-[#FFBC11]"
             />
-            <span class="text-sm font-bold text-foreground">{{
-              product.rating
-            }}</span>
+            <span class="text-sm font-bold text-foreground">
+              {{ product.rating }}
+            </span>
             <span class="text-sm text-muted-foreground">
               ({{ product.reviewsCount }} Ulasan)
             </span>
@@ -124,9 +122,9 @@ const progress = 65
 
         <!-- Price -->
         <div class="flex items-baseline gap-2">
-          <span class="text-3xl font-black text-[#1a4d2e]">{{
-            formatCurrency(product.price)
-          }}</span>
+          <span class="text-3xl font-black text-[#1a4d2e]">
+            {{ formatCurrency(product.price) }}
+          </span>
           <span class="text-muted-foreground text-base font-medium">
             / {{ product.unit }}
           </span>
@@ -163,9 +161,9 @@ const progress = 65
                   name="i-lucide-check-circle"
                   class="size-5 text-[#1a4d2e]"
                 />
-                <span class="text-xl font-black text-[#1a4d2e]">{{
-                  product.status
-                }}</span>
+                <span class="text-xl font-black text-[#1a4d2e]">
+                  {{ product.status }}
+                </span>
               </div>
             </CardContent>
           </Card>
@@ -182,9 +180,9 @@ const progress = 65
               <span class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                 Kategori
               </span>
-              <span class="text-base font-black text-foreground">{{
-                product.category
-              }}</span>
+              <span class="text-base font-black text-foreground">
+                {{ product.category }}
+              </span>
             </CardContent>
           </Card>
 
@@ -197,9 +195,9 @@ const progress = 65
               <span class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                 Lokasi Produk
               </span>
-              <span class="text-base font-black text-foreground">{{
-                product.location
-              }}</span>
+              <span class="text-base font-black text-foreground">
+                {{ product.location }}
+              </span>
             </CardContent>
           </Card>
         </div>
@@ -208,9 +206,7 @@ const progress = 65
         <Card>
           <CardContent class="flex flex-col gap-3">
             <div class="flex items-center gap-3">
-              <div
-                class="size-10 rounded-xl bg-[#1a4d2e] flex items-center justify-center shrink-0"
-              >
+              <div class="size-10 rounded-xl bg-[#1a4d2e] flex items-center justify-center shrink-0">
                 <Icon name="i-lucide-calendar-days" class="size-5 text-white" />
               </div>
               <span class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
@@ -222,17 +218,17 @@ const progress = 65
                 <span class="text-[10px] text-muted-foreground">
                   Tanggal Tanam
                 </span>
-                <span class="text-base font-black text-foreground">{{
-                  product.plantingDate
-                }}</span>
+                <span class="text-base font-black text-foreground">
+                  {{ product.plantingDate }}
+                </span>
               </div>
               <div class="flex flex-col items-end">
                 <span class="text-[10px] text-muted-foreground">
                   Estimasi Panen
                 </span>
-                <span class="text-base font-black text-[#1a4d2e]">{{
-                  product.harvestDate
-                }}</span>
+                <span class="text-base font-black text-[#1a4d2e]">
+                  {{ product.harvestDate }}
+                </span>
               </div>
             </div>
             <!-- Progress bar -->
@@ -255,34 +251,30 @@ const progress = 65
                   :alt="product.farmer.name"
                   class="size-14 rounded-full object-cover border-2 border-white shadow"
                 >
-                <div
-                  class="absolute -bottom-0.5 -right-0.5 size-4 rounded-full bg-[#1a4d2e] border-2 border-white flex items-center justify-center"
-                >
+                <div class="absolute -bottom-0.5 -right-0.5 size-4 rounded-full bg-[#1a4d2e] border-2 border-white flex items-center justify-center">
                   <Icon name="i-lucide-check" class="size-2.5 text-white" />
                 </div>
               </div>
               <div class="flex flex-col gap-0.5">
-                <span class="font-black text-base text-foreground">{{
-                  product.farmer.name
-                }}</span>
-                <div
-                  class="flex items-center gap-1 text-muted-foreground text-xs"
-                >
+                <span class="font-black text-base text-foreground">
+                  {{ product.farmer.name }}
+                </span>
+                <div class="flex items-center gap-1 text-muted-foreground text-xs">
                   <Icon name="i-lucide-map-pin" class="size-3" />
                   {{ product.farmer.location }}
                 </div>
                 <span class="text-[10px] text-muted-foreground font-medium">
                   ID Petani:
-                  <strong class="text-foreground">{{
-                    product.farmer.id
-                  }}</strong>
+                  <strong class="text-foreground">
+                    {{ product.farmer.id }}
+                  </strong>
                 </span>
               </div>
             </div>
             <div class="flex items-center gap-1.5 shrink-0">
-              <span class="text-xl font-black text-foreground">{{
-                product.farmer.points
-              }}</span>
+              <span class="text-xl font-black text-foreground">
+                {{ product.farmer.points }}
+              </span>
               <Icon name="i-lucide-leaf" class="size-5 text-[#1a4d2e]" />
             </div>
           </CardContent>
