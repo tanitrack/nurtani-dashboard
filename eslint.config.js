@@ -6,6 +6,7 @@ export default withNuxt(
     {
       rules: {
         "style/quotes": "off", // 👈 disable it
+        "style/semi": "off",
 
         // Allow trailing space in comments, for possible JSDoc formattings
         "style/no-trailing-spaces": ["error", { ignoreComments: true }],

@@ -10,15 +10,15 @@ const profile = {
   whatsapp: "+62 812-3456- 7890",
   email: "budi.santoso@farm.id",
   address: "Jl. Raya Maribaya No. 12, Lembang",
-}
+};
 
 function formatPoints(value: number) {
-  return new Intl.NumberFormat("id-ID").format(value)
+  return new Intl.NumberFormat("id-ID").format(value);
 }
 
 useHead({
   title: "Profil",
-})
+});
 </script>
 
 <template>
@@ -82,7 +82,9 @@ useHead({
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-3">
               <Icon name="i-lucide-leaf" class="size-5 text-white/90" />
-              <span class="text-sm font-semibold text-white/90">Green Points Terkumpul</span>
+              <span class="text-sm font-semibold text-white/90">
+                Green Points Terkumpul
+              </span>
             </div>
             <Icon name="i-lucide-info" class="size-5 text-white/40" />
           </div>
@@ -120,7 +122,7 @@ useHead({
 
       <!-- ─── RIGHT COLUMN: Personal Information ─── -->
       <Card class="h-full shadow-sm">
-        <CardContent class="pt-6 md:p-8">
+        <CardContent class="">
           <!-- Section title -->
           <div class="mb-8">
             <h3 class="text-lg font-bold text-foreground">
@@ -130,6 +132,8 @@ useHead({
               Keep your agricultural credentials updated
             </p>
           </div>
+
+          <Separator class="mb-10" />
 
           <!-- 2×2 Info Grid -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -231,7 +235,7 @@ useHead({
     >
       <!-- CTA Text Content -->
       <div
-        class="relative z-10 flex flex-col justify-center gap-3 p-8 lg:p-10 flex-1 max-w-[450px] shrink-0 bg-gradient-to-r from-[#FFFDF5] via-[#FFFDF5]/95 to-transparent"
+        class="relative z-10 flex flex-col justify-center gap-3 p-8 lg:p-10 flex-1 max-w-[450px] shrink-0"
       >
         <p class="text-[10px] font-bold uppercase tracking-widest text-primary">
           Koneksi Regional
@@ -255,16 +259,11 @@ useHead({
       </div>
 
       <!-- Map Graphic (fills the right side) -->
-      <div
-        class="absolute inset-0 md:relative md:inset-auto md:flex-1 w-full h-full opacity-40 md:opacity-100"
-      >
-        <div
-          class="hidden md:block absolute inset-y-0 left-[-2px] w-24 bg-linear-to-r from-[#FFFDF5] to-transparent z-10"
-        />
+      <div class="absolute inset-0 z-0">
         <img
           src="/assets/images/cta-background.png"
           alt=""
-          class="absolute inset-0 size-full object-cover"
+          class="size-full object-cover object-left opacity-50 md:opacity-100"
           aria-hidden="true"
         >
       </div>
