@@ -4,7 +4,7 @@ import type {
   ColumnFiltersState,
   SortingState,
   VisibilityState,
-} from "@tanstack/vue-table";
+} from "@tanstack/vue-table"
 import {
   FlexRender,
   getCoreRowModel,
@@ -14,49 +14,49 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
   useVueTable,
-} from "@tanstack/vue-table";
-import { ref } from "vue";
-import { valueUpdater } from "@/lib/utils";
+} from "@tanstack/vue-table"
+import { ref } from "vue"
+import { valueUpdater } from "@/lib/utils"
 
 interface DataTableProps {
-  columns: ColumnDef<TData, TValue>[];
-  data: TData[];
+  columns: ColumnDef<TData, TValue>[]
+  data: TData[]
 }
-const props = defineProps<DataTableProps>();
+const props = defineProps<DataTableProps>()
 
-const sorting = ref<SortingState>([]);
-const columnFilters = ref<ColumnFiltersState>([]);
-const columnVisibility = ref<VisibilityState>({});
-const rowSelection = ref({});
+const sorting = ref<SortingState>([])
+const columnFilters = ref<ColumnFiltersState>([])
+const columnVisibility = ref<VisibilityState>({})
+const rowSelection = ref({})
 
 const table = useVueTable({
   get data() {
-    return props.data;
+    return props.data
   },
   get columns() {
-    return props.columns;
+    return props.columns
   },
   state: {
     get sorting() {
-      return sorting.value;
+      return sorting.value
     },
     get columnFilters() {
-      return columnFilters.value;
+      return columnFilters.value
     },
     get columnVisibility() {
-      return columnVisibility.value;
+      return columnVisibility.value
     },
     get rowSelection() {
-      return rowSelection.value;
+      return rowSelection.value
     },
   },
   enableRowSelection: true,
-  onSortingChange: (updaterOrValue) => valueUpdater(updaterOrValue, sorting),
-  onColumnFiltersChange: (updaterOrValue) =>
+  onSortingChange: updaterOrValue => valueUpdater(updaterOrValue, sorting),
+  onColumnFiltersChange: updaterOrValue =>
     valueUpdater(updaterOrValue, columnFilters),
-  onColumnVisibilityChange: (updaterOrValue) =>
+  onColumnVisibilityChange: updaterOrValue =>
     valueUpdater(updaterOrValue, columnVisibility),
-  onRowSelectionChange: (updaterOrValue) =>
+  onRowSelectionChange: updaterOrValue =>
     valueUpdater(updaterOrValue, rowSelection),
   getCoreRowModel: getCoreRowModel(),
   getFilteredRowModel: getFilteredRowModel(),
@@ -64,11 +64,11 @@ const table = useVueTable({
   getSortedRowModel: getSortedRowModel(),
   getFacetedRowModel: getFacetedRowModel(),
   getFacetedUniqueValues: getFacetedUniqueValues(),
-});
+})
 
 defineExpose({
   table,
-});
+})
 </script>
 
 <template>

@@ -1,10 +1,16 @@
 <script setup lang="ts">
-import type { Row } from '@tanstack/vue-table'
-import type { Product } from '../data/schema'
+import type { Row } from "@tanstack/vue-table"
+import type { Product } from "@/types/product"
 
-defineProps<{
+const props = defineProps<{
   row: Row<Product>
 }>()
+
+const router = useRouter()
+
+function goToDetail() {
+  router.push(`/product/${props.row.original.id}`)
+}
 </script>
 
 <template>
@@ -42,7 +48,12 @@ defineProps<{
     </DropdownMenu>
 
     <!-- Figma Direct Action: View Eye Icon -->
-    <Button variant="ghost" size="icon" class="text-[#1a4d2e] hover:text-[#1a4d2e] hover:bg-green-50 transition-colors ml-2">
+    <Button
+      variant="ghost"
+      size="icon"
+      class="text-[#1a4d2e] hover:text-[#1a4d2e] hover:bg-green-50 transition-colors ml-2"
+      @click="goToDetail"
+    >
       <Icon name="i-lucide-eye" class="size-5" />
     </Button>
   </div>

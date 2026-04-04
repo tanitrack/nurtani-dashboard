@@ -1,6 +1,7 @@
 import tailwindcss from "@tailwindcss/vite"
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  srcDir: "app",
   devtools: { enabled: true },
 
   css: ["~/assets/css/tailwind.css"],

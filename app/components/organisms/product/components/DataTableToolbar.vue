@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Table } from "@tanstack/vue-table"
-import type { Product } from "../data/schema"
+import type { Product } from "@/types/product"
 import { computed } from "vue"
 import DataTableFacetedFilter from "@/components/molecules/data-table/DataTableFacetedFilter.vue"
 import { categories } from "../data/data"

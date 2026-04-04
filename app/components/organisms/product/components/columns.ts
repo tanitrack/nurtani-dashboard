@@ -1,6 +1,6 @@
 import type { ColumnDef } from "@tanstack/vue-table"
 
-import type { Product } from "../data/schema"
+import type { Product } from "@/types/product"
 import { h } from "vue"
 import DataTableColumnHeader from "@/components/molecules/data-table/DataTableColumnHeader.vue"
 import DataTableRowActions from "./DataTableRowActions.vue"

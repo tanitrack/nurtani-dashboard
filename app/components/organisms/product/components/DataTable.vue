@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import type { ColumnDef } from "@tanstack/vue-table";
-import type { Product } from "../data/schema";
-import DataTableMolecule from "@/components/molecules/data-table/DataTable.vue";
-import DataTablePagination from "@/components/molecules/data-table/DataTablePagination.vue";
-import DataTableToolbar from "./DataTableToolbar.vue";
+import type { ColumnDef } from "@tanstack/vue-table"
+import type { Product } from "@/types/product"
+import DataTableMolecule from "@/components/molecules/data-table/DataTable.vue"
+import DataTablePagination from "@/components/molecules/data-table/DataTablePagination.vue"
+import DataTableToolbar from "./DataTableToolbar.vue"
 
 interface DataTableProps {
-  columns: ColumnDef<Product, any>[];
-  data: Product[];
+  columns: ColumnDef<Product, any>[]
+  data: Product[]
 }
-defineProps<DataTableProps>();
+defineProps<DataTableProps>()
 </script>
 
 <template>
