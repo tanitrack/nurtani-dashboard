@@ -1,16 +1,20 @@
 <script setup lang="ts">
-import { Icons } from "~/components/atoms/icons/Icons"
+import { Icons } from "~/components/atoms/icons/Icons";
 </script>
 
 <template>
   <SidebarMenu>
     <SidebarMenuItem>
-      <div class="flex w-full justify-center px-2">
+      <div class="flex items-center gap-3">
         <div class="flex items-center justify-center">
-          <Icons.logo class="size-6 text-white" />
+          <Icons.logo class="size-8 text-white" />
         </div>
-        <div class="grid flex-1 text-left text-xl leading-tight ml-2">
-          <span class="truncate font-semibold text-white"> NurTani </span>
+        <div class="flex flex-col">
+          <span
+            class="text-lg font-bold text-white tracking-tight leading-none"
+          >
+            NurTani
+          </span>
         </div>
       </div>
     </SidebarMenuItem>

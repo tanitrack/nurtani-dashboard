@@ -25,9 +25,7 @@ useHead({
   <div class="space-y-6 pb-10">
     <!-- Page Header -->
     <div class="flex items-center justify-between">
-      <h1 class="text-2xl font-bold text-foreground">
-        Detail Profil
-      </h1>
+      <h1 class="text-2xl font-bold text-foreground">Detail Profil</h1>
       <nav class="flex items-center gap-1.5 text-sm text-muted-foreground">
         <span>Profil</span>
         <span>/</span>
@@ -43,14 +41,12 @@ useHead({
         <div class="flex items-center gap-4 px-1 py-2">
           <!-- Circular avatar with badge -->
           <div class="relative shrink-0">
-            <div
-              class="size-20 rounded-full overflow-hidden ring-4 ring-white shadow-md"
-            >
+            <div class="size-20 rounded-full overflow-hidden ring-4 ring-white">
               <img
                 :src="profile.avatar"
                 :alt="profile.name"
                 class="size-full object-cover"
-              >
+              />
             </div>
             <!-- Green verified badge -->
             <div
@@ -76,7 +72,7 @@ useHead({
 
         <!-- Green Points Card — matching homepage gradient style -->
         <div
-          class="relative overflow-hidden flex flex-col gap-6 p-6 lg:p-8 bg-linear-to-br from-primary to-[#008236] rounded-2xl text-white shadow-xl shadow-primary/10"
+          class="relative overflow-hidden flex flex-col gap-6 p-6 lg:p-8 bg-linear-to-br from-primary to-[#008236] rounded-2xl text-white"
         >
           <!-- Card Header -->
           <div class="flex items-center justify-between">
@@ -121,7 +117,7 @@ useHead({
       </div>
 
       <!-- ─── RIGHT COLUMN: Personal Information ─── -->
-      <Card class="h-full shadow-sm">
+      <Card class="h-full">
         <CardContent class="">
           <!-- Section title -->
           <div class="mb-8">
@@ -230,7 +226,7 @@ useHead({
 
     <!-- ─── Local Network CTA Banner ─── -->
     <div
-      class="relative rounded-2xl overflow-hidden bg-[#FFFDF5] shadow-sm border border-border/40 flex"
+      class="relative rounded-2xl overflow-hidden bg-[#FFFDF5] border border-border/40 flex"
       style="min-height: 160px"
     >
       <!-- CTA Text Content -->
@@ -251,7 +247,7 @@ useHead({
         <div class="mt-1">
           <Button
             variant="outline"
-            class="rounded-full bg-white border-border shadow-xs text-foreground font-semibold hover:bg-muted text-xs h-9 px-6"
+            class="rounded-full bg-white border-border text-foreground font-semibold hover:bg-muted text-xs h-9 px-6"
           >
             Kontak kami
           </Button>
@@ -265,7 +261,7 @@ useHead({
           alt=""
           class="size-full object-cover object-left opacity-50 md:opacity-100"
           aria-hidden="true"
-        >
+        />
       </div>
     </div>
   </div>

@@ -5,13 +5,13 @@ export const navMenu: NavMenu[] = [
     heading: "MENU",
     items: [
       {
-        title: "Home",
-        icon: "i-lucide-home",
+        title: "Beranda",
+        icon: "i-lucide-house",
         link: "/",
       },
       {
         title: "Produk",
-        icon: "i-lucide-package",
+        icon: "i-lucide-box",
         link: "/product",
       },
       {
@@ -21,7 +21,7 @@ export const navMenu: NavMenu[] = [
       },
       {
         title: "Profil",
-        icon: "i-lucide-user",
+        icon: "i-lucide-circle-user-round",
         link: "/profile",
       },
     ],

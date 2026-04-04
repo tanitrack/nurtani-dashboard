@@ -1,7 +1,7 @@
 <script setup lang="ts">
 useHead({
   title: "Home",
-})
+});
 </script>
 
 <template>
@@ -71,12 +71,10 @@ useHead({
             TOTAL TRANSAKSI
           </p>
           <div class="flex flex-col gap-3 z-10">
-            <h3 class="text-3xl font-bold text-[#18402F]">
-              Rp 42.5 Jt
-            </h3>
+            <h3 class="text-3xl font-bold text-[#18402F]">Rp 42.5 Jt</h3>
             <div class="flex items-center gap-2">
               <Badge
-                class="bg-white text-primary hover:bg-white border-0 font-bold px-2 py-0.5 shadow-xs"
+                class="bg-white text-primary hover:bg-white border-0 font-bold px-2 py-0.5"
               >
                 <Icon name="i-lucide-trending-up" class="size-3.5 mr-1" />
                 +12.5%
@@ -118,9 +116,7 @@ useHead({
             TOTAL PRODUK
           </p>
           <div class="flex flex-col gap-1 z-10">
-            <h3 class="text-4xl font-bold text-foreground">
-              1,248
-            </h3>
+            <h3 class="text-4xl font-bold text-foreground">1,248</h3>
             <div class="flex items-center gap-2 mt-2">
               <Icon name="i-lucide-package" class="size-4 text-primary" />
               <span
@@ -160,7 +156,7 @@ useHead({
       <div class="grid border rounded-2xl p-2 lg:p-3 bg-white">
         <!-- Item 1: Pembayaran -->
         <div
-          class="flex items-center gap-4 lg:gap-6 p-4 lg:p-5 hover:border-primary/20 transition-all cursor-pointer group shadow-xs border-b last:border-b-0"
+          class="flex items-center gap-4 lg:gap-6 p-4 lg:p-5 hover:border-primary/20 transition-all cursor-pointer group border-b last:border-b-0"
         >
           <div
             class="size-10 lg:size-12 bg-blue-50 flex items-center justify-center shrink-0"
@@ -184,15 +180,13 @@ useHead({
             <p class="text-[10px] font-bold text-muted-foreground/60 uppercase">
               5 Jam lalu
             </p>
-            <p class="text-xs font-bold text-foreground">
-              Rp 2.5 Juta
-            </p>
+            <p class="text-xs font-bold text-foreground">Rp 2.5 Juta</p>
           </div>
         </div>
 
         <!-- Item 2: Verifikasi -->
         <div
-          class="flex items-center gap-4 lg:gap-6 p-4 lg:p-5 hover:border-primary/20 transition-all cursor-pointer group shadow-xs border-b last:border-b-0"
+          class="flex items-center gap-4 lg:gap-6 p-4 lg:p-5 hover:border-primary/20 transition-all cursor-pointer group border-b last:border-b-0"
         >
           <div
             class="size-10 lg:size-12 bg-green-50 flex items-center justify-center shrink-0"
@@ -216,15 +210,13 @@ useHead({
             <p class="text-[10px] font-bold text-muted-foreground/60 uppercase">
               2 Jam lalu
             </p>
-            <p class="text-xs font-bold text-primary">
-              +150 poin
-            </p>
+            <p class="text-xs font-bold text-primary">+150 poin</p>
           </div>
         </div>
 
         <!-- Item 3: Stok -->
         <div
-          class="flex items-center gap-4 lg:gap-6 p-4 lg:p-5 hover:border-primary/20 transition-all cursor-pointer group shadow-xs"
+          class="flex items-center gap-4 lg:gap-6 p-4 lg:p-5 hover:border-primary/20 transition-all cursor-pointer group"
         >
           <div
             class="size-10 lg:size-12 bg-orange-50 flex items-center justify-center shrink-0"
