@@ -2,13 +2,15 @@
 import type { TransactionStatus } from "@/types/transaction"
 import { mockTransactions } from "@/mocks/transaction"
 
+const { t, locale } = useI18n()
+
 useHead({
-  title: "Riwayat",
+  title: t('nav.riwayat'),
 })
 
 const search = ref("")
-const selectedCategory = ref("Semua Kategori")
-const selectedStatus = ref("Semua Status")
+const selectedCategory = ref("all")
+const selectedStatus = ref("all")
 const perPage = ref("5")
 
 const statuses: TransactionStatus[] = ["Berhasil", "Diproses", "Dikirim"]
@@ -20,10 +22,10 @@ const filteredTransactions = computed(() => {
       .toLowerCase()
       .includes(search.value.toLowerCase())
     const matchesCategory
-      = selectedCategory.value === "Semua Kategori"
+      = selectedCategory.value === "all"
         || trx.category === selectedCategory.value
     const matchesStatus
-      = selectedStatus.value === "Semua Status"
+      = selectedStatus.value === "all"
         || trx.status === selectedStatus.value
     return matchesSearch && matchesCategory && matchesStatus
   })
@@ -43,7 +45,7 @@ function getStatusBg(status: TransactionStatus) {
 }
 
 function formatCurrency(value: number) {
-  return new Intl.NumberFormat("id-ID", {
+  return new Intl.NumberFormat(locale.value === 'id' ? 'id-ID' : 'en-US', {
     style: "currency",
     currency: "IDR",
     minimumFractionDigits: 0,
@@ -56,12 +58,12 @@ function formatCurrency(value: number) {
     <!-- Page Header -->
     <div class="flex items-center justify-between">
       <h1 class="text-2xl font-bold text-foreground">
-        Riwayat Transaksi
+        {{ $t('history.title') }}
       </h1>
       <nav class="flex items-center gap-1.5 text-sm text-muted-foreground">
-        <span>Riwayat</span>
+        <span>{{ $t('nav.riwayat') }}</span>
         <span>/</span>
-        <span class="text-foreground font-medium">Riwayat Transaksi</span>
+        <span class="text-foreground font-medium">{{ $t('history.title') }}</span>
       </nav>
     </div>
 
@@ -73,7 +75,7 @@ function formatCurrency(value: number) {
           class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
         >
           <h2 class="text-base font-bold text-foreground whitespace-nowrap">
-            Daftar Produk
+            {{ $t('product.list') }}
           </h2>
           <div class="flex items-center gap-2 flex-wrap">
             <!-- Search -->
@@ -84,7 +86,7 @@ function formatCurrency(value: number) {
               />
               <Input
                 v-model="search"
-                placeholder="Cari Nama Produk"
+                :placeholder="$t('history.search_placeholder')"
                 class="pl-8 h-9 w-40 text-sm"
               />
             </div>
@@ -92,11 +94,11 @@ function formatCurrency(value: number) {
             <!-- Category Select -->
             <Select v-model="selectedCategory">
               <SelectTrigger class="h-9 w-36 text-sm">
-                <SelectValue placeholder="Pilih Kategori" />
+                <SelectValue :placeholder="$t('common.pilih_kategori')" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="Semua Kategori">
-                  Semua Kategori
+                <SelectItem value="all">
+                  {{ $t('common.all_categories') }}
                 </SelectItem>
                 <SelectItem
                   v-for="cat in categories"
@@ -111,11 +113,11 @@ function formatCurrency(value: number) {
             <!-- Status Select -->
             <Select v-model="selectedStatus">
               <SelectTrigger class="h-9 w-36 text-sm">
-                <SelectValue placeholder="Pilih Status" />
+                <SelectValue :placeholder="$t('common.pilih_status')" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="Semua Status">
-                  Semua Status
+                <SelectItem value="all">
+                  {{ $t('common.all_statuses') }}
                 </SelectItem>
                 <SelectItem
                   v-for="stat in statuses"
@@ -176,7 +178,7 @@ function formatCurrency(value: number) {
               class="inline-flex items-center gap-1.5 text-[11px] font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap"
               :style="getStatusBg(trx.status)"
             >
-              {{ trx.status }}
+              {{ trx.status === 'Berhasil' ? $t('history.status_success') : trx.status === 'Diproses' ? $t('history.status_processing') : $t('history.status_shipped') }}
             </span>
 
             <!-- Buy Again Button -->
@@ -184,7 +186,7 @@ function formatCurrency(value: number) {
               variant="outline"
               class="h-8 px-4 text-xs font-bold border-border text-foreground hover:bg-[#1a4d2e] hover:text-white hover:border-[#1a4d2e] transition-colors"
             >
-              Beli Lagi
+              {{ $t('product.buy_again') }}
             </Button>
           </div>
         </div>
@@ -199,7 +201,7 @@ function formatCurrency(value: number) {
             class="size-12 opacity-20"
           />
           <p class="text-sm">
-            Tidak ada riwayat transaksi ditemukan.
+            {{ $t('history.empty') }}
           </p>
         </div>
       </div>
@@ -211,7 +213,7 @@ function formatCurrency(value: number) {
           <!-- Left: count + page arrows -->
           <div class="flex items-center gap-3 text-sm text-muted-foreground">
             <span>
-              1–{{ filteredTransactions.length }} of {{ mockTransactions.length }}
+              1–{{ filteredTransactions.length }} {{ $t('common.of') }} {{ mockTransactions.length }}
             </span>
             <div class="flex items-center gap-1">
               <Button
@@ -247,7 +249,7 @@ function formatCurrency(value: number) {
 
           <!-- Right: per page selector -->
           <div class="flex items-center gap-2 text-sm text-muted-foreground">
-            <span>Show</span>
+            <span>{{ $t('common.show') }}</span>
             <Select v-model="perPage">
               <SelectTrigger class="h-7 w-14 text-xs">
                 <SelectValue />
@@ -264,7 +266,7 @@ function formatCurrency(value: number) {
                 </SelectItem>
               </SelectContent>
             </Select>
-            <span>per page</span>
+            <span>{{ $t('common.per_page') }}</span>
           </div>
         </div>
       </CardContent>

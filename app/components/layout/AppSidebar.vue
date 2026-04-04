@@ -51,10 +51,10 @@ const { sidebar } = useAppSettings();
       <SidebarGroup
         v-for="(nav, indexGroup) in navMenu"
         :key="indexGroup"
-        class="px-3"
+        class="px-3 pt-6"
       >
         <SidebarGroupLabel v-if="nav.heading" class="px-3 mb-2 text-white/40">
-          {{ nav.heading }}
+          {{ $t(nav.heading) }}
         </SidebarGroupLabel>
         <component
           :is="resolveNavItemComponent(item)"

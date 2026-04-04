@@ -16,17 +16,15 @@ const router = useRouter()
       <h1 class="text-[7rem] font-bold leading-tight">
         404
       </h1>
-      <span class="font-medium">Oops! Page Not Found!</span>
-      <p class="text-center text-muted-foreground">
-        It seems like the page you're looking for <br>
-        does not exist or might have been removed.
+      <span class="font-medium">{{ $t('error.oops') }}</span>
+      <p class="text-center text-muted-foreground" v-html="$t('error.not_exist')">
       </p>
       <div class="mt-6 flex gap-4">
         <Button variant="outline" @click="router.back()">
-          Go Back
+          {{ $t('error.go_back') }}
         </Button>
         <Button @click="router.push('/')">
-          Back to Home
+          {{ $t('error.go_home') }}
         </Button>
       </div>
     </div>

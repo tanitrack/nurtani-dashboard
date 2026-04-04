@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useHead({
-  title: "Home",
+  title: useI18n().t('nav.beranda'),
 });
 </script>
 
@@ -9,10 +9,10 @@ useHead({
     <!-- Greeting Section -->
     <div class="flex flex-col gap-1.5">
       <h2 class="text-2xl font-bold tracking-tight text-foreground">
-        Selamat Pagi, Pak Budi 👋
+        {{ $t('home.greeting', { name: 'Pak Budi' }) }}
       </h2>
       <p class="text-muted-foreground text-sm">
-        Pantau aktivitas dan transaksi Anda dengan mudah
+        {{ $t('home.sub_greeting') }}
       </p>
     </div>
 
@@ -26,7 +26,7 @@ useHead({
           <div class="flex items-center gap-3">
             <Icon name="i-lucide-leaf" class="size-6 text-white/90" />
             <span class="text-sm font-semibold text-white/90">
-              Green Points Terkumpul
+              {{ $t('profile.green_points') }}
             </span>
           </div>
           <Icon name="i-lucide-info" class="size-5 text-white/40" />
@@ -35,7 +35,7 @@ useHead({
         <div class="flex flex-col gap-1">
           <div class="flex items-baseline gap-2">
             <span class="text-4xl font-bold tracking-tighter">8,420</span>
-            <span class="text-lg font-medium text-white/80">poin</span>
+            <span class="text-lg font-medium text-white/80">{{ $t('profile.point') }}</span>
           </div>
         </div>
 
@@ -47,7 +47,7 @@ useHead({
             <div
               class="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-white/60"
             >
-              <span>Progres ke tingkat berikutnya</span>
+              <span>{{ $t('profile.progress_next') }}</span>
               <span>84%</span>
             </div>
           </div>
@@ -68,7 +68,7 @@ useHead({
           <p
             class="text-[10px] font-bold text-yellow-800 uppercase tracking-widest"
           >
-            TOTAL TRANSAKSI
+            {{ $t('home.total_transaction') }}
           </p>
           <div class="flex flex-col gap-3 z-10">
             <h3 class="text-3xl font-bold text-[#18402F]">Rp 42.5 Jt</h3>
@@ -82,7 +82,7 @@ useHead({
               <span
                 class="text-[10px] font-bold text-yellow-800/60 uppercase tracking-wider"
               >
-                dari bulan lalu
+                {{ $t('home.from_last_month') }}
               </span>
             </div>
           </div>
@@ -113,7 +113,7 @@ useHead({
           <p
             class="text-[10px] font-bold text-muted-foreground uppercase tracking-widest"
           >
-            TOTAL PRODUK
+            {{ $t('home.total_product') }}
           </p>
           <div class="flex flex-col gap-1 z-10">
             <h3 class="text-4xl font-bold text-foreground">1,248</h3>
@@ -122,7 +122,7 @@ useHead({
               <span
                 class="text-[10px] font-bold text-muted-foreground uppercase tracking-wider"
               >
-                Produk tersedia
+                {{ $t('home.products_available') }}
               </span>
             </div>
           </div>
@@ -141,7 +141,7 @@ useHead({
             class="w-full font-bold h-11 transition-colors border-primary"
           >
             <Icon name="i-lucide-download" class="size-4 mr-2" />
-            Download Report
+            {{ $t('home.download_report') }}
           </Button>
         </div>
       </div>
@@ -150,7 +150,7 @@ useHead({
     <!-- Riwayat Terakhir -->
     <div class="flex flex-col gap-6">
       <h3 class="text-lg font-bold text-foreground tracking-tight">
-        Riwayat Terakhir
+        {{ $t('home.recent_history') }}
       </h3>
 
       <div class="grid border rounded-2xl p-2 lg:p-3 bg-white">
@@ -167,18 +167,17 @@ useHead({
             <p
               class="text-sm font-bold text-foreground group-hover:text-primary transition-colors"
             >
-              Pembayaran Diterima
+              {{ $t('home.history_payment_title') }}
             </p>
             <p
               class="text-[10px] text-muted-foreground font-medium line-clamp-2 md:line-clamp-1 mt-0.5 whitespace-normal"
             >
-              Saldo hasil penjualan dari Toko Berkah berhasil masuk. Dana akan
-              diteruskan ke rekening terdaftar dalam 1x24 jam.
+              {{ $t('home.history_payment_desc') }}
             </p>
           </div>
           <div class="flex flex-col items-end shrink-0 gap-1">
             <p class="text-[10px] font-bold text-muted-foreground/60 uppercase">
-              5 Jam lalu
+              {{ $t('home.hours_ago', { n: 5 }) }}
             </p>
             <p class="text-xs font-bold text-foreground">Rp 2.5 Juta</p>
           </div>
@@ -197,18 +196,17 @@ useHead({
             <p
               class="text-sm font-bold text-foreground group-hover:text-primary transition-colors"
             >
-              Kentang Organik berhasil diverifikasi
+              {{ $t('home.history_verify_title') }}
             </p>
             <p
               class="text-[10px] text-muted-foreground font-medium line-clamp-2 md:line-clamp-1 mt-0.5 whitespace-normal"
             >
-              Data harian yang Anda kirim telah divalidasi oleh sistem.
-              Sertifikat digital untuk produk Kentang Organik kini aktif.
+              {{ $t('home.history_verify_desc') }}
             </p>
           </div>
           <div class="flex flex-col items-end shrink-0 gap-1">
             <p class="text-[10px] font-bold text-muted-foreground/60 uppercase">
-              2 Jam lalu
+              {{ $t('home.hours_ago', { n: 2 }) }}
             </p>
             <p class="text-xs font-bold text-primary">+150 poin</p>
           </div>
@@ -230,20 +228,19 @@ useHead({
             <p
               class="text-sm font-bold text-foreground group-hover:text-primary transition-colors"
             >
-              Stok Menipis
+              {{ $t('home.history_stock_title') }}
             </p>
             <p
               class="text-[10px] text-muted-foreground font-medium line-clamp-2 md:line-clamp-1 mt-0.5 whitespace-normal"
             >
-              Persediaan Pupuk B-Type di gudang Anda tersisa kurang dari 10%.
-              Segera lakukan pengisian untuk menjaga jadwal tanam.
+              {{ $t('home.history_stock_desc') }}
             </p>
           </div>
           <div class="flex flex-col items-end shrink-0 gap-1">
             <p
               class="text-[10px] font-bold text-muted-foreground/60 uppercase tracking-wider"
             >
-              Kemarin
+              {{ $t('home.yesterday') }}
             </p>
             <Icon
               name="i-lucide-chevron-right"

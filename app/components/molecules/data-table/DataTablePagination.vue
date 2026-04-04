@@ -5,6 +5,7 @@ interface DataTablePaginationProps {
   table: Table<TData>
 }
 defineProps<DataTablePaginationProps>()
+useI18n()
 </script>
 
 <template>
@@ -23,7 +24,7 @@ defineProps<DataTablePaginationProps>()
             table.getFilteredRowModel().rows.length,
           )
         }}
-        of {{ table.getFilteredRowModel().rows.length }}
+        {{ $t('common.of') }} {{ table.getFilteredRowModel().rows.length }}
       </div>
 
       <div class="flex items-center gap-3">
@@ -55,7 +56,7 @@ defineProps<DataTablePaginationProps>()
 
     <!-- Right: Page Size Selector (Show 5 per page) -->
     <div class="flex items-center gap-3 text-sm">
-      <span class="text-foreground">Show</span>
+      <span class="text-foreground">{{ $t('common.show') }}</span>
       <Select
         :model-value="`${table.getState().pagination.pageSize}`"
         @update:model-value="(val) => table.setPageSize(Number(val))"
@@ -75,7 +76,7 @@ defineProps<DataTablePaginationProps>()
           </SelectItem>
         </SelectContent>
       </Select>
-      <span class="text-foreground">per page</span>
+      <span class="text-foreground">{{ $t('common.per_page') }}</span>
     </div>
   </div>
 </template>

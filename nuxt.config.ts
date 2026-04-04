@@ -52,7 +52,18 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "@nuxt/fonts",
     "@nuxthub/core",
+    "@nuxtjs/i18n",
   ],
+
+  i18n: {
+    locales: [
+      { code: "id", name: "Bahasa Indonesia", file: "id.json" },
+      { code: "en", name: "English", file: "en.json" },
+    ],
+    defaultLocale: "id",
+    langDir: "locales",
+    strategy: "no_prefix",
+  },
 
   shadcn: {
     /**

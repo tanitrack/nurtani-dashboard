@@ -1,9 +1,16 @@
 <script setup lang="ts">
-import { columns } from "@/components/organisms/product/components/columns"
+import { getColumns } from "@/components/organisms/product/components/columns"
 import DataTable from "@/components/organisms/product/components/DataTable.vue"
 import { mockProducts } from "@/mocks/product"
 
 const products = ref(mockProducts)
+const { t, locale } = useI18n()
+
+const columns = computed(() => getColumns(t, locale.value))
+
+useHead({
+  title: t('product.list'),
+})
 </script>
 
 <template>
@@ -14,12 +21,12 @@ const products = ref(mockProducts)
     >
       <div class="flex flex-col gap-1">
         <h2 class="text-2xl font-bold tracking-tight text-foreground">
-          Daftar Produk
+          {{ $t('product.list') }}
         </h2>
         <div class="flex items-center gap-2 text-sm text-muted-foreground">
-          <span>Produk</span>
+          <span>{{ $t('nav.produk') }}</span>
           <span class="text-muted-foreground/40">/</span>
-          <span class="text-foreground font-medium">Daftar Produk</span>
+          <span class="text-foreground font-medium">{{ $t('product.list') }}</span>
         </div>
       </div>
     </div>

@@ -36,12 +36,12 @@ const { setOpenMobile } = useSidebar();
           >
             <Icon :name="item.icon || ''" class="size-3.5 shrink-0" />
           </div>
-          <span class="text-xs font-semibold">{{ item.title }}</span>
+          <span class="text-xs font-semibold">{{ $t(item.title) }}</span>
           <span
             v-if="item.new"
             class="ml-auto rounded-sm bg-[#adfa1d] px-1 py-0.5 text-[8px] font-bold uppercase leading-none text-black"
           >
-            New
+            {{ $t('common.new') }}
           </span>
         </NuxtLink>
       </SidebarMenuButton>

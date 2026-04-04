@@ -13,23 +13,24 @@ const profile = {
 };
 
 function formatPoints(value: number) {
-  return new Intl.NumberFormat("id-ID").format(value);
+  const { locale } = useI18n()
+  return new Intl.NumberFormat(locale.value === 'id' ? 'id-ID' : 'en-US').format(value)
 }
 
 useHead({
-  title: "Profil",
-});
+  title: useI18n().t('nav.profil'),
+})
 </script>
 
 <template>
   <div class="space-y-6 pb-10">
     <!-- Page Header -->
     <div class="flex items-center justify-between">
-      <h1 class="text-2xl font-bold text-foreground">Detail Profil</h1>
+      <h1 class="text-2xl font-bold text-foreground">{{ $t('profile.detail') }}</h1>
       <nav class="flex items-center gap-1.5 text-sm text-muted-foreground">
-        <span>Profil</span>
+        <span>{{ $t('nav.profil') }}</span>
         <span>/</span>
-        <span class="text-foreground font-medium">Detail Profil</span>
+        <span class="text-foreground font-medium">{{ $t('profile.detail') }}</span>
       </nav>
     </div>
 
@@ -79,7 +80,7 @@ useHead({
             <div class="flex items-center gap-3">
               <Icon name="i-lucide-leaf" class="size-5 text-white/90" />
               <span class="text-sm font-semibold text-white/90">
-                Green Points Terkumpul
+                {{ $t('profile.green_points') }}
               </span>
             </div>
             <Icon name="i-lucide-info" class="size-5 text-white/40" />
@@ -90,7 +91,7 @@ useHead({
             <span class="text-4xl font-bold tracking-tighter">
               {{ formatPoints(profile.points) }}
             </span>
-            <span class="text-lg font-medium text-white/80">poin</span>
+            <span class="text-lg font-medium text-white/80">{{ $t('profile.point') }}</span>
           </div>
 
           <!-- Level + Progress -->
@@ -102,7 +103,7 @@ useHead({
               <div
                 class="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-white/60"
               >
-                <span>Progres ke tingkat berikutnya</span>
+                <span>{{ $t('profile.progress_next') }}</span>
                 <span>{{ profile.progress }}%</span>
               </div>
             </div>
@@ -122,10 +123,10 @@ useHead({
           <!-- Section title -->
           <div class="mb-8">
             <h3 class="text-lg font-bold text-foreground">
-              Personal Information
+              {{ $t('profile.personal_info') }}
             </h3>
             <p class="text-sm text-muted-foreground mt-0.5">
-              Keep your agricultural credentials updated
+              {{ $t('profile.keep_updated') }}
             </p>
           </div>
 
@@ -144,7 +145,7 @@ useHead({
                 <p
                   class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground leading-none"
                 >
-                  Full Name
+                  {{ $t('profile.full_name') }}
                 </p>
                 <span
                   class="text-sm font-semibold text-foreground leading-tight"
@@ -168,7 +169,7 @@ useHead({
                 <p
                   class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground leading-none"
                 >
-                  WhatsApp Number
+                  {{ $t('profile.whatsapp') }}
                 </p>
                 <span
                   class="text-sm font-semibold text-foreground leading-tight"
@@ -189,7 +190,7 @@ useHead({
                 <p
                   class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground leading-none"
                 >
-                  Email Address
+                  {{ $t('profile.email') }}
                 </p>
                 <span
                   class="text-sm font-semibold text-foreground leading-tight"
@@ -210,7 +211,7 @@ useHead({
                 <p
                   class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground leading-none"
                 >
-                  Primary Farm Address
+                  {{ $t('profile.farm_address') }}
                 </p>
                 <span
                   class="text-sm font-semibold text-foreground leading-snug"
@@ -234,14 +235,14 @@ useHead({
         class="relative z-10 flex flex-col justify-center gap-3 p-8 lg:p-10 flex-1 max-w-[450px] shrink-0"
       >
         <p class="text-[10px] font-bold uppercase tracking-widest text-primary">
-          Koneksi Regional
+          {{ $t('profile.regional_connection') }}
         </p>
         <div>
           <h3 class="text-2xl font-black text-foreground leading-tight">
-            Local Network
+            {{ $t('profile.local_network') }}
           </h3>
           <p class="text-sm text-muted-foreground mt-1">
-            Perluas jaringan anda bersama kami
+            {{ $t('profile.expand_network') }}
           </p>
         </div>
         <div class="mt-1">
@@ -249,7 +250,7 @@ useHead({
             variant="outline"
             class="rounded-full bg-white border-border text-foreground font-semibold hover:bg-muted text-xs h-9 px-6"
           >
-            Kontak kami
+            {{ $t('profile.contact_us') }}
           </Button>
         </div>
       </div>

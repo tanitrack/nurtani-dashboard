@@ -8,6 +8,7 @@ const color = computed(() =>
   colorMode.value === "dark" ? "#09090b" : "#ffffff",
 )
 const { theme } = useAppSettings()
+const { t, locale } = useI18n()
 
 useHead({
   meta: [
@@ -17,7 +18,7 @@ useHead({
   ],
   link: [{ rel: "icon", href: "/favicon.ico" }],
   htmlAttrs: {
-    lang: "en",
+    lang: locale,
   },
   bodyAttrs: {
     class: computed(
@@ -28,7 +29,7 @@ useHead({
 })
 
 const title = "NurTani"
-const description = "Hulu Sehat, Hilir Bahagia"
+const description = computed(() => t('home.sub_greeting'))
 
 useSeoMeta({
   title,

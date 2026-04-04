@@ -2,25 +2,25 @@ import type { NavMenu, NavMenuItems } from "~/types/nav"
 
 export const navMenu: NavMenu[] = [
   {
-    heading: "MENU",
+    heading: "common.menu",
     items: [
       {
-        title: "Beranda",
+        title: "nav.beranda",
         icon: "i-lucide-house",
         link: "/",
       },
       {
-        title: "Produk",
+        title: "nav.produk",
         icon: "i-lucide-box",
         link: "/product",
       },
       {
-        title: "Riwayat",
+        title: "nav.riwayat",
         icon: "i-lucide-history",
         link: "/history",
       },
       {
-        title: "Profil",
+        title: "nav.profil",
         icon: "i-lucide-circle-user-round",
         link: "/profile",
       },
@@ -30,12 +30,12 @@ export const navMenu: NavMenu[] = [
 
 export const navMenuBottom: NavMenuItems = [
   {
-    title: "Help & Support",
+    title: "nav.help",
     icon: "i-lucide-circle-help",
     link: "https://github.com/dianprata/nuxt-shadcn-dashboard",
   },
   {
-    title: "Feedback",
+    title: "nav.feedback",
     icon: "i-lucide-send",
     link: "https://github.com/dianprata/nuxt-shadcn-dashboard",
   },

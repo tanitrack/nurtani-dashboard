@@ -14,6 +14,7 @@ function handleLogout() {
 }
 
 const showModalTheme = ref(false)
+useI18n()
 </script>
 
 <template>
@@ -45,10 +46,10 @@ const showModalTheme = ref(false)
           </Avatar>
           <div class="hidden md:flex flex-col items-start gap-0.5 text-left">
             <p class="text-sm font-bold leading-none text-foreground">
-              Pak Budi
+              {{ $t('profile.name') }}
             </p>
             <p class="text-[11px] leading-none text-muted-foreground font-medium">
-              Cianjur, Jawa Barat
+              {{ $t('profile.location') }}
             </p>
           </div>
         </Button>
@@ -68,24 +69,24 @@ const showModalTheme = ref(false)
         <DropdownMenuGroup>
           <DropdownMenuItem>
             <Icon name="i-lucide-badge-check" class="mr-2 h-4 w-4" />
-            <span>Account</span>
+            <span>{{ $t('common.account') }}</span>
           </DropdownMenuItem>
           <DropdownMenuItem as-child>
             <NuxtLink to="/settings">
               <Icon name="i-lucide-settings" class="mr-2 h-4 w-4" />
-              <span>Settings</span>
+              <span>{{ $t('common.settings') }}</span>
             </NuxtLink>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <Icon name="i-lucide-bell" class="mr-2 h-4 w-4" />
-            <span>Notifications</span>
+            <span>{{ $t('common.notifications') }}</span>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem @click="showModalTheme = true">
             <Icon name="i-lucide-paintbrush" class="mr-2 h-4 w-4" />
-            <span>Theme</span>
+            <span>{{ $t('common.theme') }}</span>
           </DropdownMenuItem>
           <DropdownMenuItem as-child>
             <NuxtLink
@@ -94,14 +95,14 @@ const showModalTheme = ref(false)
               target="_blank"
             >
               <Icon name="i-lucide-github" class="mr-2 h-4 w-4" />
-              <span>Github Repository</span>
+              <span>{{ $t('common.github_repo') }}</span>
             </NuxtLink>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem class="text-destructive focus:text-destructive" @click="handleLogout">
           <Icon name="i-lucide-log-out" class="mr-2 h-4 w-4" />
-          <span>Log out</span>
+          <span>{{ $t('common.logout') }}</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
@@ -109,9 +110,9 @@ const showModalTheme = ref(false)
     <Dialog v-model:open="showModalTheme">
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Customize</DialogTitle>
+          <DialogTitle>{{ $t('common.customize') }}</DialogTitle>
           <DialogDescription class="text-xs text-muted-foreground">
-            Customize & Preview in Real Time
+            {{ $t('common.customize_desc') }}
           </DialogDescription>
         </DialogHeader>
         <ThemeCustomize />

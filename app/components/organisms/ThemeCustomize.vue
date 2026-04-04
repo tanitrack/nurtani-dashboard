@@ -40,7 +40,7 @@ const colorMode = useColorMode()
 <template>
   <div class="grid gap-6">
     <div class="space-y-1.5">
-      <Label>Color</Label>
+      <Label>{{ $t('settings.color') }}</Label>
       <div class="grid grid-cols-3 gap-2">
         <template v-for="col in allColors" :key="col">
           <Button
@@ -58,7 +58,7 @@ const colorMode = useColorMode()
       </div>
     </div>
     <div class="space-y-1.5">
-      <Label>Type</Label>
+      <Label>{{ $t('settings.type') }}</Label>
       <div class="grid grid-cols-3 gap-2">
         <template v-for="themeType in allTypes" :key="themeType">
           <Button
@@ -73,7 +73,7 @@ const colorMode = useColorMode()
       </div>
     </div>
     <div class="space-y-1.5">
-      <Label>Theme</Label>
+      <Label>{{ $t('settings.theme') }}</Label>
       <div class="grid grid-cols-3 gap-2">
         <Button
           class="justify-center gap-2"
@@ -82,7 +82,7 @@ const colorMode = useColorMode()
           @click="colorMode.preference = 'light'"
         >
           <Icon name="i-ph-sun-dim-duotone" size="16" />
-          <span class="text-xs capitalize">Light</span>
+          <span class="text-xs capitalize">{{ $t('settings.light') }}</span>
         </Button>
         <Button
           class="justify-center gap-2"
@@ -91,7 +91,7 @@ const colorMode = useColorMode()
           @click="colorMode.preference = 'dark'"
         >
           <Icon name="i-ph-moon-stars-duotone" size="16" />
-          <span class="text-xs capitalize">Dark</span>
+          <span class="text-xs capitalize">{{ $t('settings.dark') }}</span>
         </Button>
         <Button
           class="justify-center gap-2"
@@ -99,8 +99,8 @@ const colorMode = useColorMode()
           :class="{ '!border-primary border-2 !bg-primary/10': colorMode.preference === 'system' }"
           @click="colorMode.preference = 'system'"
         >
-          <Icon name="i-lucide-monitor" size="16" />
-          <span class="text-xs capitalize">System</span>
+          <Icon name="i-lucid-monitor" size="16" />
+          <span class="text-xs capitalize">{{ $t('settings.system') }}</span>
         </Button>
       </div>
     </div>

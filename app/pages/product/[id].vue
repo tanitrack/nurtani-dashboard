@@ -6,8 +6,10 @@ const productId = route.params.id as string
 
 const product = computed(() => mockProducts.find(p => p.id === productId))
 
+const { t, locale } = useI18n()
+
 useHead({
-  title: computed(() => product.value?.name ?? "Produk"),
+  title: computed(() => product.value?.name ?? t('product.detail')),
 })
 
 const activeImageIndex = ref(0)
@@ -19,7 +21,7 @@ const activeImage = computed(
 )
 
 function formatCurrency(value: number) {
-  return new Intl.NumberFormat("id-ID", {
+  return new Intl.NumberFormat(locale.value === 'id' ? 'id-ID' : 'en-US', {
     style: "currency",
     currency: "IDR",
     minimumFractionDigits: 0,
@@ -34,14 +36,14 @@ const progress = 65
     <!-- Header Row -->
     <div class="flex items-center justify-between mb-8">
       <h1 class="text-2xl font-bold text-foreground">
-        Detail Produk
+        {{ $t('product.detail') }}
       </h1>
       <nav class="flex items-center gap-2 text-sm text-muted-foreground">
         <NuxtLink to="/product" class="hover:text-foreground transition-colors">
-          Produk
+          {{ $t('nav.produk') }}
         </NuxtLink>
         <span>/</span>
-        <span class="text-foreground">Detail Produk</span>
+        <span class="text-foreground">{{ $t('product.detail') }}</span>
       </nav>
     </div>
 
@@ -88,7 +90,7 @@ const progress = 65
             <div class="flex items-center gap-3">
               <div class="h-1 w-10 rounded-full bg-[#FFBC11]" />
               <h2 class="text-xl font-bold text-foreground">
-                Deskripsi Produk
+                {{ $t('product.description') }}
               </h2>
             </div>
             <p class="text-muted-foreground leading-relaxed">
@@ -114,7 +116,7 @@ const progress = 65
               {{ product.rating }}
             </span>
             <span class="text-sm text-muted-foreground">
-              ({{ product.reviewsCount }} Ulasan)
+              ({{ product.reviewsCount }} {{ $t('product.reviews') }})
             </span>
           </div>
         </div>
@@ -140,7 +142,7 @@ const progress = 65
           <Card class="bg-[#FFF8E1] border-[#FFE082]">
             <CardContent class="flex flex-col gap-2">
               <span class="text-[10px] font-bold uppercase tracking-widest text-[#8C6D1F]">
-                Stok Tersedia
+                {{ $t('product.stock_available') }}
               </span>
               <div class="flex items-center gap-2">
                 <Icon
@@ -158,7 +160,7 @@ const progress = 65
           <Card class="border-[#1a4d2e]/30">
             <CardContent class="flex flex-col gap-2">
               <span class="text-[10px] font-bold uppercase tracking-widest text-[#1a4d2e]">
-                Status
+                {{ $t('product.status') }}
               </span>
               <div class="flex items-center gap-2">
                 <Icon
@@ -182,7 +184,7 @@ const progress = 65
                 class="size-5 text-muted-foreground mb-1"
               />
               <span class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
-                Kategori
+                {{ $t('product.category') }}
               </span>
               <span class="text-base font-black text-foreground">
                 {{ product.category }}
@@ -197,7 +199,7 @@ const progress = 65
                 class="size-5 text-[#FFBC11] mb-1"
               />
               <span class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
-                Lokasi Produk
+                {{ $t('product.location') }}
               </span>
               <span class="text-base font-black text-foreground">
                 {{ product.location }}
@@ -214,13 +216,13 @@ const progress = 65
                 <Icon name="i-lucide-calendar-days" class="size-5 text-white" />
               </div>
               <span class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
-                Jadwal Tanam & Panen
+                {{ $t('product.schedule_title') }}
               </span>
             </div>
             <div class="flex items-end justify-between">
               <div class="flex flex-col">
                 <span class="text-[10px] text-muted-foreground">
-                  Tanggal Tanam
+                  {{ $t('product.planting_date') }}
                 </span>
                 <span class="text-base font-black text-foreground">
                   {{ product.plantingDate }}
@@ -228,7 +230,7 @@ const progress = 65
               </div>
               <div class="flex flex-col items-end">
                 <span class="text-[10px] text-muted-foreground">
-                  Estimasi Panen
+                  {{ $t('product.harvest_estimate') }}
                 </span>
                 <span class="text-base font-black text-[#1a4d2e]">
                   {{ product.harvestDate }}
@@ -268,7 +270,7 @@ const progress = 65
                   {{ product.farmer.location }}
                 </div>
                 <span class="text-[10px] text-muted-foreground font-medium">
-                  ID Petani:
+                  {{ $t('product.farmer_id') }}:
                   <strong class="text-foreground">
                     {{ product.farmer.id }}
                   </strong>
@@ -291,11 +293,11 @@ const progress = 65
   <div v-else class="h-[60vh] flex flex-col items-center justify-center gap-4">
     <Icon name="i-lucide-package-x" class="size-16 text-muted-foreground/30" />
     <p class="text-lg font-semibold text-muted-foreground">
-      Produk tidak ditemukan
+      {{ $t('product.not_found') }}
     </p>
     <Button variant="outline" as-child>
       <NuxtLink to="/product">
-        Kembali ke Daftar Produk
+        {{ $t('product.list') }}
       </NuxtLink>
     </Button>
   </div>

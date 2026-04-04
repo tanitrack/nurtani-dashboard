@@ -1,12 +1,13 @@
 <script setup lang="ts">
 const router = useRouter()
+const { locale, locales, setLocale, t } = useI18n()
 
 definePageMeta({
   layout: "blank",
 })
 
 useHead({
-  title: "Daftar",
+  title: t('auth.register'),
 })
 </script>
 
@@ -16,10 +17,10 @@ useHead({
       <!-- Header -->
       <div class="flex flex-col gap-2">
         <h2 class="text-2xl font-bold tracking-tight text-foreground">
-          Form Registrasi
+          {{ $t('auth.registration_form') }}
         </h2>
         <p class="text-muted-foreground text-sm leading-relaxed">
-          Isi data berikut untuk memulai perjalanan Anda bersama NurTani.
+          {{ $t('auth.registration_subtitle') }}
         </p>
       </div>
 
@@ -27,9 +28,9 @@ useHead({
       <form class="grid gap-5" @submit.prevent="router.push('/login')">
         <!-- Name Field -->
         <Field name="fullName">
-          <Label> Nama Lengkap <span class="text-destructive">*</span> </Label>
+          <Label> {{ $t('auth.full_name') }} <span class="text-destructive">*</span> </Label>
           <Input
-            placeholder="contoh: Ahmad Suherman"
+            :placeholder="$t('auth.full_name_placeholder')"
             class="mt-1.5 rounded-lg h-11 focus-visible:ring-primary/20"
           />
         </Field>
@@ -38,7 +39,7 @@ useHead({
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Field name="whatsapp">
             <Label>
-              Nomor WhatsApp <span class="text-destructive">*</span>
+              {{ $t('auth.whatsapp_number') }} <span class="text-destructive">*</span>
             </Label>
             <div
               class="relative flex items-center mt-1.5 rounded-lg border border-input px-3 py-2 focus-within:ring-2 focus-within:ring-primary/20 transition-all"
@@ -55,7 +56,7 @@ useHead({
           </Field>
 
           <Field name="email">
-            <Label> Email (Opsional) </Label>
+            <Label> {{ $t('auth.email_optional') }} </Label>
             <Input
               type="email"
               placeholder="nama@email.com"
@@ -66,16 +67,16 @@ useHead({
 
         <!-- Address Field -->
         <Field name="address">
-          <Label> Alamat Utama <span class="text-destructive">*</span> </Label>
+          <Label> {{ $t('auth.address_main') }} <span class="text-destructive">*</span> </Label>
           <Input
-            placeholder="Nama jalan, desa, kecamatan, provinsi..."
+            :placeholder="$t('auth.address_placeholder')"
             class="mt-1.5 rounded-lg h-11 focus-visible:ring-primary/20"
           />
         </Field>
 
         <!-- Profile Photo -->
         <div class="flex flex-col gap-1.5">
-          <Label class="text-sm font-semibold block"> Foto Profil </Label>
+          <Label class="text-sm font-semibold block"> {{ $t('auth.profile_photo') }} </Label>
           <div
             class="border-2 border-dashed border-input rounded-xl p-8 flex flex-col items-center justify-center gap-3 bg-muted/5 hover:bg-muted/10 transition-colors cursor-pointer group"
           >
@@ -89,41 +90,57 @@ useHead({
             </div>
             <div class="text-center">
               <p class="text-sm font-bold text-foreground">
-                Klik untuk mengunggah foto
+                {{ $t('auth.click_to_upload') }}
               </p>
               <p
                 class="text-[10px] text-muted-foreground uppercase tracking-wider mt-1 font-medium italic"
               >
-                JPG, PNG hingga 5MB
+                {{ $t('auth.upload_hint') }}
               </p>
             </div>
             <input type="file" class="hidden" accept="image/*">
           </div>
         </div>
 
-        <!-- Submit Button -->
         <Button
           size="lg"
           class="w-full bg-primary hover:bg-primary/90 text-white rounded-lg h-12 font-bold flex items-center justify-center gap-2 mt-2"
         >
-          Selesaikan Pendaftaran
+          {{ $t('auth.complete_registration') }}
           <Icon name="i-lucide-arrow-right" class="size-5" />
         </Button>
 
         <!-- Footer -->
-        <p
-          class="text-center text-[10px] text-muted-foreground/80 leading-relaxed max-w-sm mx-auto"
-        >
-          Dengan mendaftar, Anda menyetujui
-          <NuxtLink to="#" class="text-foreground font-semibold hover:underline">
-            Syarat & Ketentuan
-          </NuxtLink>
-          serta
-          <NuxtLink to="#" class="text-foreground font-semibold hover:underline">
-            Kebijakan Privasi
-          </NuxtLink>
-          kami.
-        </p>
+        <div class="flex flex-col gap-6">
+          <p
+            class="text-center text-[10px] text-muted-foreground/80 leading-relaxed max-w-sm mx-auto"
+          >
+            {{ $t('auth.agree_prefix') }}
+            <NuxtLink to="#" class="text-foreground font-semibold hover:underline">
+              {{ $t('auth.terms') }}
+            </NuxtLink>
+            {{ $t('auth.agree_conjunction') }}
+            <NuxtLink to="#" class="text-foreground font-semibold hover:underline">
+              {{ $t('auth.privacy') }}
+            </NuxtLink>
+            {{ $t('auth.agree_suffix') }}
+          </p>
+
+          <Separator />
+
+          <div class="flex justify-center gap-4">
+            <button
+              v-for="l in (locales as any)"
+              :key="l.code"
+              type="button"
+              class="text-xs font-bold transition-colors hover:text-primary"
+              :class="locale === l.code ? 'text-primary underline' : 'text-muted-foreground'"
+              @click="setLocale(l.code)"
+            >
+              {{ l.name }}
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   </AuthLayout>

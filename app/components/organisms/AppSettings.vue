@@ -17,50 +17,50 @@ function handleChangeDirection(dir: 'ltr' | 'rtl') {
 <template>
   <DefineTemplate>
     <div class="space-y-3">
-      <Badge>Layout</Badge>
+      <Badge>{{ $t('settings.layout') }}</Badge>
       <div class="grid gap-6">
         <div class="space-y-1.5">
-          <Label>Navbar Type</Label>
+          <Label>{{ $t('settings.navbar_type') }}</Label>
           <div class="grid grid-cols-3 gap-2">
             <Button
               variant="outline"
               :class="{ 'border-primary! border-2 bg-primary/10!': sidebar?.variant === 'sidebar' }"
               @click="updateAppSettings({ sidebar: { variant: 'sidebar' } })"
             >
-              Sidebar
+              {{ $t('settings.sidebar') }}
             </Button>
             <Button
               variant="outline"
               :class="{ 'border-primary! border-2 bg-primary/10!': sidebar?.variant === 'floating' }"
               @click="updateAppSettings({ sidebar: { variant: 'floating' } })"
             >
-              Floating
+              {{ $t('settings.floating') }}
             </Button>
             <Button
               variant="outline"
               :class="{ 'border-primary! border-2 bg-primary/10!': sidebar?.variant === 'inset' }"
               @click="updateAppSettings({ sidebar: { variant: 'inset' } })"
             >
-              Inset
+              {{ $t('settings.inset') }}
             </Button>
           </div>
         </div>
         <div class="space-y-1.5">
-          <Label>Direction</Label>
+          <Label>{{ $t('settings.direction') }}</Label>
           <div class="grid grid-cols-2 gap-2">
             <Button
               variant="outline"
               :class="{ 'border-primary! border-2 bg-primary/10!': direction === 'ltr' }"
               @click="handleChangeDirection('ltr')"
             >
-              LTR
+              {{ $t('settings.ltr') }}
             </Button>
             <Button
               variant="outline"
               :class="{ 'border-primary! border-2 bg-primary/10!': direction === 'rtl' }"
               @click="handleChangeDirection('rtl')"
             >
-              RTL
+              {{ $t('settings.rtl') }}
             </Button>
           </div>
         </div>
@@ -76,13 +76,13 @@ function handleChangeDirection(dir: 'ltr' | 'rtl') {
     </SheetTrigger>
     <SheetContent :side="direction === 'rtl' ? 'left' : 'right'">
       <SheetHeader class="p-6 pb-0">
-        <SheetTitle>Template Customizer</SheetTitle>
-        <SheetDescription>Customize & Preview in Real Time</SheetDescription>
+        <SheetTitle>{{ $t('settings.template_customizer') }}</SheetTitle>
+        <SheetDescription>{{ $t('settings.customize_desc') }}</SheetDescription>
       </SheetHeader>
       <ScrollArea class="h-[calc(100vh-100px)]">
         <div class="flex flex-col gap-6 px-6">
           <div class="space-y-3">
-            <Badge>Theming</Badge>
+            <Badge>{{ $t('settings.theming') }}</Badge>
             <ThemeCustomize />
           </div>
           <Separator />
@@ -100,12 +100,12 @@ function handleChangeDirection(dir: 'ltr' | 'rtl') {
     </DrawerTrigger>
     <DrawerContent class="max-h-[97%]">
       <DrawerHeader class="text-center sm:text-center">
-        <DrawerTitle>Template Customizer</DrawerTitle>
-        <DrawerDescription>Customize & Preview in Real Time</DrawerDescription>
+        <DrawerTitle>{{ $t('settings.template_customizer') }}</DrawerTitle>
+        <DrawerDescription>{{ $t('settings.customize_desc') }}</DrawerDescription>
       </DrawerHeader>
       <div class="mx-auto max-w-md w-full overflow-auto overflow-y-auto px-4 pb-6 space-y-6">
         <div class="space-y-3">
-          <Badge>Theming</Badge>
+          <Badge>{{ $t('settings.theming') }}</Badge>
           <ThemeCustomize />
         </div>
         <Separator />

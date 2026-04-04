@@ -1,12 +1,13 @@
 <script setup lang="ts">
 const router = useRouter()
+const { locale, locales, setLocale, t } = useI18n()
 
 definePageMeta({
   layout: "blank",
 })
 
 useHead({
-  title: "Login",
+  title: t('auth.login'),
 })
 </script>
 
@@ -16,10 +17,10 @@ useHead({
       <!-- Header -->
       <div class="flex flex-col gap-2">
         <h2 class="text-2xl font-bold tracking-tight text-foreground">
-          Selamat Datang Kembali
+          {{ $t('auth.welcome_back') }}
         </h2>
         <p class="text-muted-foreground text-sm">
-          Silakan masukkan data Anda untuk masuk.
+          {{ $t('auth.login_subtitle') }}
         </p>
       </div>
 
@@ -28,7 +29,7 @@ useHead({
         <!-- WhatsApp Field -->
         <Field name="whatsapp">
           <Label>
-            Nomor WhatsApp <span class="text-destructive">*</span>
+            {{ $t('auth.whatsapp_number') }} <span class="text-destructive">*</span>
           </Label>
           <div
             class="relative flex items-center mt-1.5 focus-within:ring-2 focus-within:ring-primary/20 rounded-lg border border-input px-3 py-2 transition-all"
@@ -46,13 +47,13 @@ useHead({
         <Field name="otp">
           <div class="flex items-center justify-between">
             <Label>
-              Kode OTP 6 Digit <span class="text-destructive">*</span>
+              {{ $t('auth.otp_code') }} <span class="text-destructive">*</span>
             </Label>
             <NuxtLink
               to="#"
               class="text-primary text-xs font-medium hover:underline"
             >
-              Kirim Ulang Kode
+              {{ $t('auth.resend_otp') }}
             </NuxtLink>
           </div>
           <div class="mt-1.5 flex justify-between gap-2">
@@ -79,7 +80,7 @@ useHead({
           class="flex items-start gap-2 text-xs text-muted-foreground/80 leading-snug"
         >
           <Icon name="i-lucide-lock" class="size-3.5 mt-0.5 shrink-0" />
-          <p>OTP terenkripsi dengan aman untuk melindungi akun Anda.</p>
+          <p>{{ $t('auth.otp_secure_note') }}</p>
         </div>
 
         <!-- Submit Button -->
@@ -87,20 +88,37 @@ useHead({
           size="lg"
           class="w-full bg-primary hover:bg-primary/90 text-white rounded-lg h-12 font-bold flex items-center justify-center gap-2"
         >
-          Masuk ke Dashboard
+          {{ $t('auth.login_button') }}
           <Icon name="i-lucide-arrow-right" class="size-5" />
         </Button>
 
         <!-- Footer -->
-        <p class="text-center text-sm text-muted-foreground mt-2">
-          Belum punya akun?
-          <NuxtLink
-            to="/register"
-            class="text-primary font-bold hover:underline ml-1"
-          >
-            Daftar
-          </NuxtLink>
-        </p>
+        <div class="flex flex-col gap-6 mt-2">
+          <p class="text-center text-sm text-muted-foreground">
+            {{ $t('auth.no_account') }}
+            <NuxtLink
+              to="/register"
+              class="text-primary font-bold hover:underline ml-1"
+            >
+              {{ $t('auth.register') }}
+            </NuxtLink>
+          </p>
+
+          <Separator />
+
+          <div class="flex justify-center gap-4">
+            <button
+              v-for="l in (locales as any)"
+              :key="l.code"
+              type="button"
+              class="text-xs font-bold transition-colors hover:text-primary"
+              :class="locale === l.code ? 'text-primary underline' : 'text-muted-foreground'"
+              @click="setLocale(l.code)"
+            >
+              {{ l.name }}
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   </AuthLayout>
