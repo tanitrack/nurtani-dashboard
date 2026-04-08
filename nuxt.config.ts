@@ -8,12 +8,20 @@ export default defineNuxtConfig({
     head: {
       titleTemplate: "%s | NurTani",
       title: "NurTani",
+      meta: [
+        { name: "apple-mobile-web-app-capable", content: "yes" },
+        { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" },
+        { name: "msapplication-TileColor", content: "#2fb380" },
+      ],
+      link: [
+        { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+      ],
     },
   },
 
   css: ["~/assets/css/tailwind.css"],
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss() as any],
   },
 
   components: [
@@ -53,7 +61,57 @@ export default defineNuxtConfig({
     "@nuxt/fonts",
     "@nuxthub/core",
     "@nuxtjs/i18n",
+    "@vite-pwa/nuxt",
   ],
+
+  pwa: {
+    registerType: "autoUpdate",
+    manifest: {
+      name: "NurTani",
+      short_name: "NurTani",
+      description: "Digital farming management and agricultural solutions.",
+      theme_color: "#2fb380",
+      background_color: "#ffffff",
+      display: "standalone",
+      orientation: "portrait",
+      icons: [
+        {
+          src: "pwa-192x192.png",
+          sizes: "192x192",
+          type: "image/png",
+        },
+        {
+          src: "pwa-512x512.png",
+          sizes: "512x512",
+          type: "image/png",
+        },
+        {
+          src: "pwa-512x512.png",
+          sizes: "512x512",
+          type: "image/png",
+          purpose: "any",
+        },
+        {
+          src: "maskable-icon.png",
+          sizes: "512x512",
+          type: "image/png",
+          purpose: "maskable",
+        },
+      ],
+    },
+    workbox: {
+      navigateFallback: "/",
+      globPatterns: ["**/*.{js,css,html,png,svg,ico}"],
+    },
+    client: {
+      installPrompt: true,
+      periodicSyncForUpdates: 3600,
+    },
+    devOptions: {
+      enabled: true,
+      type: "module",
+    },
+  },
 
   i18n: {
     locales: [
