@@ -1,4 +1,0 @@
-[install]
-dev = true
-# Ensure we don't accidentally update the lockfile in CI
-frozenLockfile = false

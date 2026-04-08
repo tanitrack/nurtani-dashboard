@@ -38,7 +38,7 @@
     "node": "22.x"
   },
   "scripts": {
-    "build": "nuxt build",
+    "build": "bun install && nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
