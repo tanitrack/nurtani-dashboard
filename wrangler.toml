@@ -1,9 +1,6 @@
 name = "nurtani-dashboard"
-main = "./.output/server/index.mjs"
+pages_build_output_dir = ".output/public"
 compatibility_date = "2026-03-13"
-
-[site]
-bucket = "./.output/public"
 
 [observability]
 enabled = true
