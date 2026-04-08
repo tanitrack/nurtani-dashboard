@@ -123,6 +123,13 @@ export default defineNuxtConfig({
     defaultLocale: "id",
     langDir: "locales",
     strategy: "no_prefix",
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: "i18n_redirected",
+      alwaysRedirect: false,
+      fallbackLocale: "id",
+    },
+    vueI18n: "i18n.config.ts",
   },
 
   shadcn: {
