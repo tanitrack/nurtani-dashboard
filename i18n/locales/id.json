@@ -159,5 +159,17 @@
     "direction": "Arah",
     "ltr": "Kiri ke Kanan",
     "rtl": "Kanan ke Kiri"
+  },
+  "pwa": {
+    "install_title": "Instal NurTani",
+    "install_description": "Ketuk instal untuk akses cepat dan pengalaman tanpa gangguan.",
+    "ios_instruction_title": "Instruksi untuk iPhone:",
+    "ios_step_1": "Ketuk tombol 'Share' di Safari.",
+    "ios_step_2": "Cari dan ketuk 'Add to Home Screen'.",
+    "ios_step_3": "Ketuk 'Add' di pojok kanan atas.",
+    "android_description": "Instal NurTani ke layar utama Anda untuk kemudahan akses setiap hari.",
+    "install_button_ios": "Saya Mengerti",
+    "install_button_android": "Instal Sekarang",
+    "dismiss_button": "Nanti"
   }
 }

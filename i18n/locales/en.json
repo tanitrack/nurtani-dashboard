@@ -159,5 +159,17 @@
     "direction": "Direction",
     "ltr": "LTR",
     "rtl": "RTL"
+  },
+  "pwa": {
+    "install_title": "Install NurTani",
+    "install_description": "Install for fast access and a smooth, distraction-free experience.",
+    "ios_instruction_title": "Instructions for iPhone:",
+    "ios_step_1": "Tap the Share button in Safari.",
+    "ios_step_2": "Search and tap 'Add to Home Screen'.",
+    "ios_step_3": "Tap 'Add' in the top right corner.",
+    "android_description": "Install NurTani to your home screen for easy daily access.",
+    "install_button_ios": "I Understand",
+    "install_button_android": "Install Now",
+    "dismiss_button": "Later"
   }
 }

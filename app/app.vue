@@ -63,6 +63,7 @@ const dir = computed(() => (textDirection.value === "rtl" ? "rtl" : "ltr"))
         </NuxtLayout>
 
         <AppSettings />
+        <PwaInstallPrompt />
       </div>
 
       <Toaster :theme="(colorMode.preference as any) || 'system'" />
