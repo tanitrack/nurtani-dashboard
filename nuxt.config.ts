@@ -1,4 +1,4 @@
-import tailwindcss from "@tailwindcss/vite"
+import tailwindcss from "@tailwindcss/vite";
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   srcDir: "app",
@@ -10,12 +10,13 @@ export default defineNuxtConfig({
       title: "NurTani",
       meta: [
         { name: "apple-mobile-web-app-capable", content: "yes" },
-        { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" },
+        {
+          name: "apple-mobile-web-app-status-bar-style",
+          content: "black-translucent",
+        },
         { name: "msapplication-TileColor", content: "#2fb380" },
       ],
-      link: [
-        { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
-      ],
+      link: [{ rel: "apple-touch-icon", href: "/apple-touch-icon.png" }],
     },
   },
 
@@ -101,7 +102,8 @@ export default defineNuxtConfig({
     },
     workbox: {
       navigateFallback: "/",
-      globPatterns: ["**/*.{js,css,html,png,svg,ico}"],
+      globPatterns: ["**/*.{js,css,html,png,svg,ico,webp,json}"],
+      maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
     },
     client: {
       installPrompt: true,
@@ -161,4 +163,4 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: "2026-03-13",
-})
+});

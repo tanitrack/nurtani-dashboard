@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { Icons } from "~/components/atoms/icons/Icons"
+import { Icons } from "~/components/atoms/icons";
 
 defineProps<{
-  reverse?: boolean
-}>()
+  reverse?: boolean;
+}>();
 </script>
 
 <template>
@@ -15,10 +15,10 @@ defineProps<{
       <!-- Background Image with Overlay -->
       <div class="absolute inset-0 z-0">
         <img
-          src="/assets/images/auth-background.png"
+          src="/assets/images/auth-background.webp"
           alt="Auth Background"
           class="size-full object-cover"
-        >
+        />
         <!-- <div class="absolute inset-0 bg-primary/80" /> -->
       </div>
 
@@ -31,7 +31,7 @@ defineProps<{
 
         <div class="space-y-6 max-w-xl">
           <h1 class="text-6xl font-serif leading-[1.1] font-semibold">
-            Hulu Sehat,<br>
+            Hulu Sehat,<br />
             <span class="italic text-secondary"> Hilir Bahagia </span>
           </h1>
           <p class="text-lg text-white/90 leading-relaxed font-light">
