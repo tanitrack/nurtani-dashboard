@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { ConfigProvider } from "reka-ui"
-import { Toaster } from "@/components/atoms/sonner"
-import "vue-sonner/style.css"
+import { ConfigProvider } from "reka-ui";
+import { Toaster } from "@/components/atoms/sonner";
+import "vue-sonner/style.css";
 
-const colorMode = useColorMode()
+const colorMode = useColorMode();
 const color = computed(() =>
   colorMode.value === "dark" ? "#09090b" : "#ffffff",
-)
-const { theme } = useAppSettings()
-const { t, locale } = useI18n()
+);
+const { theme } = useAppSettings();
+const { t, locale } = useI18n();
 
 useHead({
   meta: [
@@ -26,10 +26,10 @@ useHead({
         `color-${theme.value?.color || "default"} theme-${theme.value?.type || "default"}`,
     ),
   },
-})
+});
 
-const title = "NurTani"
-const description = computed(() => t('home.sub_greeting'))
+const title = "NurTani";
+const description = computed(() => t("home.sub_greeting"));
 
 useSeoMeta({
   title,
@@ -42,16 +42,16 @@ useSeoMeta({
   twitterDescription: description,
   twitterImage: "https://nuxt-shadcn-dashboard.vercel.app/social-card.png",
   twitterCard: "summary_large_image",
-})
+});
 
-const router = useRouter()
+const router = useRouter();
 
 defineShortcuts({
   "G-H": () => router.push("/"),
-})
+});
 
-const textDirection = useTextDirection({ initialValue: "ltr" })
-const dir = computed(() => (textDirection.value === "rtl" ? "rtl" : "ltr"))
+const textDirection = useTextDirection({ initialValue: "ltr" });
+const dir = computed(() => (textDirection.value === "rtl" ? "rtl" : "ltr"));
 </script>
 
 <template>
@@ -62,7 +62,7 @@ const dir = computed(() => (textDirection.value === "rtl" ? "rtl" : "ltr"))
           <NuxtPage />
         </NuxtLayout>
 
-        <AppSettings />
+        <!-- <AppSettings /> -->
         <PwaInstallPrompt />
       </div>
 
