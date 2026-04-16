@@ -11,6 +11,12 @@ export default withNuxt(
         "vue/singleline-html-element-content-newline": "off", // 👈 Allow tags on single lines
         "vue/multiline-html-element-content-newline": "off", // 👈 Allow tags on single lines even if multiline content
         "vue/html-self-closing": "off", // 👈 Allow self-closing tags (<img/>)
+        "style/arrow-parens": "off", // 👈 Allow Prettier to handle arrow parentheses
+        "style/operator-linebreak": "off", // 👈 Allow Prettier to handle operator line breaks
+        "vue/html-indent": "off", // 👈 Allow Prettier to handle HTML indentation
+        "vue/html-closing-bracket-newline": "off", // 👈 Allow Prettier to handle closing bracket newlines
+        "vue/html-closing-bracket-spacing": "off", // 👈 Allow Prettier to handle closing bracket spacing
+        "vue/max-attributes-per-line": "off", // 👈 Allow Prettier to handle attributes per line
 
         // Allow trailing space in comments, for possible JSDoc formattings
         "style/no-trailing-spaces": ["error", { ignoreComments: true }],

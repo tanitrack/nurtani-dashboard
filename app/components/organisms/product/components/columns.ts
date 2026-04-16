@@ -54,6 +54,9 @@ export function getColumns(t: any, locale: string): ColumnDef<Product>[] {
           { class: "font-medium text-foreground text-sm" },
           formatCurrency(row.getValue("price"), locale),
         ),
+      meta: {
+        className: "hidden md:table-cell",
+      },
     },
     {
       accessorKey: "stock",
@@ -65,6 +68,9 @@ export function getColumns(t: any, locale: string): ColumnDef<Product>[] {
           { class: "font-medium text-foreground text-sm" },
           row.getValue("stock"),
         ),
+      meta: {
+        className: "hidden md:table-cell",
+      },
     },
     {
       accessorKey: "unit",
@@ -76,6 +82,9 @@ export function getColumns(t: any, locale: string): ColumnDef<Product>[] {
           { class: "font-medium text-foreground text-sm" },
           row.getValue("unit"),
         ),
+      meta: {
+        className: "hidden md:table-cell",
+      },
     },
     {
       accessorKey: "lastUpdate",
@@ -87,9 +96,13 @@ export function getColumns(t: any, locale: string): ColumnDef<Product>[] {
           { class: "text-muted-foreground text-sm" },
           row.getValue("lastUpdate"),
         ),
+      meta: {
+        className: "hidden md:table-cell",
+      },
     },
     {
       id: "actions",
+      header: () => h("div", { class: "text-center md:text-left" }, t("common.actions")),
       cell: ({ row }) => h(DataTableRowActions, { row }),
     },
   ]

@@ -28,7 +28,8 @@
     "customize": "Sesuaikan",
     "customize_desc": "Sesuaikan & Pratinjau Secara Real Time",
     "reset": "Atur Ulang",
-    "add_data": "Tambah Data"
+    "add_data": "Tambah Data",
+    "actions": "Aksi"
   },
   "auth": {
     "login": "Masuk",
