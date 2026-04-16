@@ -16,16 +16,21 @@ function goToDetail() {
 <template>
   <div class="flex items-center justify-center">
     <DropdownMenu>
-      <DropdownMenuTrigger as-child>
+      <DropdownMenuTrigger as-child class="hidden md:flex">
         <Button
           variant="ghost"
           class="flex h-8 w-8 p-0 data-[state=open]:bg-muted"
+          @click.stop
         >
           <Icon name="i-radix-icons-dots-horizontal" class="h-4 w-4" />
           <span class="sr-only">Open menu</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" class="w-[160px]">
+        <DropdownMenuItem class="gap-2" @click="goToDetail">
+          <Icon name="i-lucide-eye" class="size-3.5" />
+          Detail
+        </DropdownMenuItem>
         <DropdownMenuItem class="gap-2">
           <Icon name="i-lucide-edit" class="size-3.5" />
           Edit
@@ -33,10 +38,6 @@ function goToDetail() {
         <DropdownMenuItem class="gap-2">
           <Icon name="i-lucide-copy" class="size-3.5" />
           Make a copy
-        </DropdownMenuItem>
-        <DropdownMenuItem class="gap-2">
-          <Icon name="i-lucide-star" class="size-3.5" />
-          Favorite
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem class="gap-2 text-destructive focus:text-destructive">
@@ -51,8 +52,8 @@ function goToDetail() {
     <Button
       variant="ghost"
       size="icon"
-      class="text-[#1a4d2e] hover:text-[#1a4d2e] hover:bg-green-50 transition-colors ml-2"
-      @click="goToDetail"
+      class="text-[#1a4d2e] hover:text-[#1a4d2e] hover:bg-green-50 transition-colors md:ml-2"
+      @click.stop="goToDetail"
     >
       <Icon name="i-lucide-eye" class="size-5" />
     </Button>

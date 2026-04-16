@@ -17,6 +17,9 @@ import {
 } from "@tanstack/vue-table"
 import { ref } from "vue"
 import { valueUpdater } from "@/lib/utils"
+import { useRouter } from "vue-router"
+
+const router = useRouter()
 
 interface DataTableProps {
   columns: ColumnDef<TData, TValue>[]
@@ -88,7 +91,10 @@ defineExpose({
             <TableHead
               v-for="header in headerGroup.headers"
               :key="header.id"
-              class="px-4 py-3 font-bold text-foreground border first:border-l-0 last:border-r-0"
+              :class="[
+                'px-4 py-3 font-bold text-foreground border first:border-l-0 last:border-r-0',
+                (header.column.columnDef.meta as any)?.className,
+              ]"
             >
               <FlexRender
                 v-if="!header.isPlaceholder"
@@ -104,12 +110,16 @@ defineExpose({
               v-for="row in table.getRowModel().rows"
               :key="row.id"
               :data-state="row.getIsSelected() && 'selected'"
-              class="hover:bg-slate-50/30 transition-colors border-b"
+              class="hover:bg-slate-50/30 transition-colors border-b cursor-pointer"
+              @click="router.push(`/product/${(row.original as any).id}`)"
             >
               <TableCell
                 v-for="cell in row.getVisibleCells()"
                 :key="cell.id"
-                class="px-4 py-3 border first:border-l-0 last:border-r-0"
+                :class="[
+                  'px-4 py-3 border first:border-l-0 last:border-r-0',
+                  (cell.column.columnDef.meta as any)?.className,
+                ]"
               >
                 <FlexRender
                   :render="cell.column.columnDef.cell"

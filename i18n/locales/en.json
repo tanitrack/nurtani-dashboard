@@ -28,7 +28,8 @@
     "customize": "Customize",
     "customize_desc": "Customize & Preview in Real Time",
     "reset": "Reset",
-    "add_data": "Add Data"
+    "add_data": "Add Data",
+    "actions": "Actions"
   },
   "auth": {
     "login": "Sign In",
